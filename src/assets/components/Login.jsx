@@ -1,9 +1,12 @@
 import React from 'react'
+import Navigation from './Navigation'
 export default function Login() {
   return (
     <>
     <section>
-      
+    <>
+
+   </>
     <body class="bg-gray-100 flex items-center justify-center h-screen">
     <div class="bg-white p-8  shadow-md w-96">
         <h2 class="text-2xl font-semibold mb-4">Login</h2>

@@ -1,10 +1,7 @@
 import React from 'react'
-import Login from './assets/components/Login'
-import Navigation from './assets/components/Navigation'
+import AppRouter from './assets/components/route/AppRoute'
 export default function App() {
   return (
-   <>
-   <Navigation/>
-   </>
+  <AppRouter/>
   )
 }
