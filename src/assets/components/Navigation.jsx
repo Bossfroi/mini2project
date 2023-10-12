@@ -26,17 +26,17 @@ export default function Navigation() {
 
   return (
     <>
-      <header className=" bg-opacity-90 bg-stone-950 p-4">
+      <header className=" bg-opacity-90 bg-stone-950 p-4 flex-auto">
         <nav className="container mx-auto">
           <div className="flex justify-between items-center">
-            <a href="#" className="text-white text-2xl font-bold">
+            <a href="/login" className="text-white text-2xl font-bold ">
             <img src='/src/assets/components/images/Logo1.png' className=' w-35 h-10'></img>
             </a>
             <div className="flex space-x-4">
               {NavMenu.map((item) => (
                 <a
                   key={item.link}
-                  className="text-white hover:text-gray-300"
+                  className=" text-sky-200 hover:text-red-700"
                   href={item.link}
                 >
                   {item.Title}
