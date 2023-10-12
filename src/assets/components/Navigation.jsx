@@ -26,11 +26,11 @@ export default function Navigation() {
 
   return (
     <>
-      <header className="bg-slate-950 p-4">
+      <header className=" bg-opacity-90 bg-red-900 p-4">
         <nav className="container mx-auto">
           <div className="flex justify-between items-center">
             <a href="#" className="text-white text-2xl font-bold">
-              Logo
+            <img src='/src/assets/components/images/Logo1.png' className=' w-35 h-10'></img>
             </a>
             <div className="flex space-x-4">
               {NavMenu.map((item) => (
