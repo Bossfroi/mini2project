@@ -26,7 +26,7 @@ export default function Navigation() {
 
   return (
     <>
-      <header className=" bg-opacity-90 bg-red-900 p-4">
+      <header className=" bg-opacity-90 bg-stone-950 p-4">
         <nav className="container mx-auto">
           <div className="flex justify-between items-center">
             <a href="#" className="text-white text-2xl font-bold">
