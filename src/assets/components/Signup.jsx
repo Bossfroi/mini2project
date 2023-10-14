@@ -14,6 +14,7 @@ export default function Signup() {
             type="text"
             id="name"
             name="name"
+            className="w-full p-2 border border-dark-300 rounded-md"
             required
           />
         </div>
@@ -23,6 +24,7 @@ export default function Signup() {
             type="email"
             id="email"
             name="email"
+            className="w-full p-2 border border-dark-300 rounded-md"
             required
           />
         </div>
@@ -32,6 +34,7 @@ export default function Signup() {
             type="password"
             id="password"
             name="password"
+            className="w-full p-2 border border-dark-300 rounded-md"
             required
           />
         </div>
@@ -41,6 +44,7 @@ export default function Signup() {
             type="password"
             id="confirmPassword"
             name="confirmPassword"
+            className="w-full p-2 border border-dark-300 rounded-md"
             required
           />
         </div>
