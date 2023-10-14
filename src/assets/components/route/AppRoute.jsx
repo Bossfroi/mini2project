@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from '../Home';
+import Categories from '../Categories';
+import ContactUs from '../ContactUs';
 import About from '../About';
 import News from '../News';
 import Login from '../Login';
@@ -14,6 +16,8 @@ export default function AppRoute() {
       <Navigation />
       <Routes>
         <Route path="/home" element={<Home />} />
+        <Route path="/Categories" element={<Categories />} />
+        <Route path="/ContactUs" element={<ContactUs />} />
         <Route path="/about" element={<About />} />
         <Route path="/news" element={<News />} />
         <Route path="/login" element={<Login />} />
