@@ -7,6 +7,14 @@ export default function Navigation() {
       link: '/Home',
     },
     {
+      Title: 'categories',
+      link: '/Categories',
+    },
+    {
+      Title: 'contactUs',
+      link: '/ContactUs',
+    },
+    {
       Title: 'About',
       link: '/About',
     },
