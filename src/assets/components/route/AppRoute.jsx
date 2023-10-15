@@ -8,7 +8,6 @@ import News from '../News';
 import Login from '../Login';
 import Signup from '../Signup';
 import Navigation from '../Navigation';
-import GoogleAuth from '../API/GoogleAuth';
 
 export default function AppRoute() {
   return (
@@ -22,7 +21,6 @@ export default function AppRoute() {
         <Route path="/news" element={<News />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/google" element={<GoogleAuth />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,6 +1,7 @@
 import React from 'react';
-import Navigation from './Navigation';
+
 import Googleauth from './API/GoogleAuth'
+import Signup from './Signup';
 export default function Login() {
   return (
     <section className="bg-gray-100 flex items-center justify-center mt-2">
@@ -43,7 +44,10 @@ export default function Login() {
             </span>
           </div>
           <div className="mt-2 ml-14 " >
-          <Googleauth/>
+          <Googleauth/> <br />
+          <a href="./Signup" className=" bg-sky-600 shadow-lg mt-12 ml-6 py-1 px-2 rounded-md hover:bg-red-700">
+          Sign-up Manually  
+          </a>
           </div>
         </form>
       </div>

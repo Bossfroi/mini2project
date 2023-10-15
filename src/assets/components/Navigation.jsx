@@ -26,10 +26,7 @@ export default function Navigation() {
       Title: 'Login',
       link: '/Login',
     },
-    {
-      Title: 'Signup',
-      link: '/Signup',
-    },
+  
   ];
 
   return (
