@@ -7,7 +7,7 @@ export default function Navigation() {
       link: '/Home',
     },
     {
-      Title: 'categories',
+      Title: 'Categories',
       link: '/Categories',
     },
     {

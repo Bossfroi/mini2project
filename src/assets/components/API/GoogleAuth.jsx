@@ -4,7 +4,6 @@ import jwtDecode from 'jwt-decode';
 export default function GoogleAuth() {
   return (
 <>
-
 <GoogleLogin
   onSuccess={credentialResponse => {
     const credentialResponseDecode = jwtDecode(credentialResponse.credential)
