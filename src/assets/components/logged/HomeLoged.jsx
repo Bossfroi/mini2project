@@ -2,6 +2,6 @@ import React from 'react'
 
 export default function HomeLoged() {
   return (
-    <div>HomeLoged</div>
+    <div>Sucessfully</div>
   )
 }
