@@ -16,7 +16,9 @@ const connection = mongoose.connection;
 connection.once('open', () => {
     console.log("Your MongoDB database connection is established.");
 });
+
 app.use('/authGoogle', googleauth);
+
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
 });

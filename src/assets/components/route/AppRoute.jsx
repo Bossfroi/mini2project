@@ -8,6 +8,7 @@ import News from '../News';
 import Login from '../Login';
 import Signup from '../Signup';
 import Navigation from '../Navigation';
+import Index from '../logged/HomeLoged';
 
 export default function AppRoute() {
   return (
@@ -15,13 +16,18 @@ export default function AppRoute() {
       <Navigation />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/Categories" element={<Categories />} />
         <Route path="/ContactUs" element={<ContactUs />} />
         <Route path="/about" element={<About />} />
         <Route path="/news" element={<News />} />
         <Route path="/login" element={<Login />} />
+
         <Route path="/signup" element={<Signup />} />
+        <Route path="/index" element={<Index />} />
       </Routes>
     </BrowserRouter>
+
+    
   );
 }

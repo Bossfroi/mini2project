@@ -12,7 +12,7 @@ export default function Home() {
     className="w-full filter blur-md"
   />
   <div className="absolute inset-0 flex">
-    <div className='bg-red-300 m-5 sm:m-10 p-5 max-w-md bg-gradient-to-r from-red-500 to-red-300 p-5 rounded-lg shadow-lg'>
+    <div className='bg-red-300 m-5 sm:m-10 max-w-md bg-gradient-to-r from-red-500 to-red-300 p-5 rounded-lg shadow-lg'>
       <ul>
         <h2 className='font-extrabold pb-5 text-2xl sm:text-4xl'>Product Line</h2>
         <li>Air Compressor</li>
