@@ -9,7 +9,7 @@ import Login from '../Login';
 import Signup from '../Signup';
 import Navigation from '../Navigation';
 import Index from '../logged/HomeLoged';
-
+import NavigationLoged from '../logged/Navigationloged';
 export default function AppRoute() {
   return (
     <BrowserRouter>
@@ -22,9 +22,9 @@ export default function AppRoute() {
         <Route path="/about" element={<About />} />
         <Route path="/news" element={<News />} />
         <Route path="/login" element={<Login />} />
-
+         
         <Route path="/signup" element={<Signup />} />
-        <Route path="/index" element={<Index />} />
+        <Route path="/Dashboard " element={<Index />} />
       </Routes>
     </BrowserRouter>
 

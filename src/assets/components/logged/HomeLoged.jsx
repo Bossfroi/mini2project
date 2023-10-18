@@ -1,7 +1,11 @@
-import React from 'react'
+import React from 'react';
+import Navigation from '../Navigation';
+import NavigationLoged from './Navigationloged';
 
-export default function HomeLoged() {
+export default function HomeLoged({ isLoggedIn }) {
   return (
-    <div>Sucessfully</div>
-  )
+    <div>
+      {isLoggedIn ? <NavigationLoged /> : <Navigation />}
+    </div>
+  );
 }
