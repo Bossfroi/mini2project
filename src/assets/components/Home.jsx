@@ -5,36 +5,39 @@ export default function Home() {
   return (
     <>
      <>
-     <div className="relative">
+     
+
+<body className='bg-red-200'>
+<div className="relative">
   <img
     src="/src/assets/components/images/hero.jpg"
     alt=""
-    className="w-full filter blur-md"
+    className="w-full filter blur-sm"
   />
   <div className="absolute inset-0 flex">
     <div className='bg-red-300 m-5 sm:m-10 max-w-md bg-gradient-to-r from-red-500 to-red-300 p-5 rounded-lg shadow-lg'>
-      <ul>
+      <ul className='list-disc p-6'>
         <h2 className='font-extrabold pb-5 text-2xl sm:text-4xl'>Product Line</h2>
-        <li>Air Compressor</li>
-        <li>Backhoe</li>
-        <li>Backhoe Loader</li>
-        <li>Boom Truck</li>
-        <li>Crane</li>
-        <li>Excavator</li>
-        <li>Forklift</li>
-        <li>Generator</li>
-        <li>Grader</li>
-        <li>Hydraulic Breaker</li>
-        <li>Jack Hammer</li>
-        <li>Light Tower</li>
-        <li>Manlift</li>
-        <li>Road Roller</li>
-        <li>Scissor Lift</li>
-        <li>Skid Steer Loader</li>
-        <li>Telehandler</li>
-        <li>Telescopic Clamshell</li>
-        <li>Welding Machine</li>
-        <li>Wheel Loader</li>
+        <a href="" className='hover:underline'><li>Air Compressor</li></a>
+        <a href="" className='hover:underline'><li>Backhoe</li></a>
+        <a href="" className='hover:underline'><li>Backhoe Loader</li></a>
+        <a href="" className='hover:underline'><li>Boom Truck</li></a>
+        <a href="" className='hover:underline'><li>Crane</li></a>
+        <a href="" className='hover:underline'><li>Excavator</li></a>
+        <a href="" className='hover:underline'><li>Forklift</li></a>
+        <a href="" className='hover:underline'><li>Generator</li></a>
+        <a href="" className='hover:underline'><li>Grader</li></a>
+        <a href="" className='hover:underline'><li>Hydraulic Breaker</li></a>
+        <a href="" className='hover:underline'><li>Jack Hammer</li></a>
+        <a href="" className='hover:underline'><li>Light Tower</li></a>
+        <a href="" className='hover:underline'><li>Manlift</li></a>
+        <a href="" className='hover:underline'><li>Road Roller</li></a>
+        <a href="" className='hover:underline'><li>Scissor Lift</li></a>
+        <a href="" className='hover:underline'><li>Skid Steer Loader</li></a>
+        <a href="" className='hover:underline'><li>Telehandler</li></a>
+        <a href="" className='hover:underline'><li>Telescopic Clamshell</li></a>
+        <a href="" className='hover:underline'><li>Welding Machine</li></a>
+        <a href="" className='hover:underline'><li>Wheel Loader</li></a>
       </ul>
     </div>
     
@@ -58,6 +61,78 @@ export default function Home() {
   </div>
 </div>
 
+
+<div className='flex pt-8'>
+  <div className='m-2 w-1/2'>
+    <div className='relative h-72'>
+      <img src="/src/assets/components/images/rent-calculatorButton.jpg" alt="" className='w-full h-full object-cover rounded-2xl' />
+      <div className="absolute inset-x-0 bottom-0 flex items-center justify-center">
+        <button className='w-48 h-12 text-white font-semibold bg-gradient-to-r from-red-500 to-green-500 rounded-full hover:from-green-500 hover:to-red-500 shadow-lg transition-transform transform hover:scale-105'>
+          Rent Calculator
+        </button>
+      </div>
+    </div>
+  </div>
+  <div className='m-2 w-1/2'>
+    <div className='relative h-72'>
+      <img src="/src/assets/components/images/book-nowButton.jpg" alt="" className='w-full h-full object-cover rounded-2xl' />
+      <div className="absolute inset-x-0 bottom-0 flex items-center justify-center">
+        <button className='w-48 h-12 text-white font-semibold bg-gradient-to-r from-red-500 to-green-500 rounded-full hover:from-green-500 hover:to-red-500 shadow-lg transition-transform transform hover:scale-105'>
+          Book Now
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div className='flex justify-between'>
+  <div className="m-2 w-1/3">
+    <div className="bg-white p-6 h-auto rounded-lg shadow-md">
+      <h2 className="text-2xl font-semibold text-gray-800 mb-4 border-b-2 border-gray-800">Easy Online Rentals</h2>
+      <p className="text-base text-gray-600 leading-relaxed">
+        Rent without the hassle of a phone call. Place, view, and manage your orders anytime, through any device using our online portal.
+      </p>
+    </div>
+  </div>
+  <div className="m-2 w-1/3">
+    <div className="bg-white p-6 h-auto rounded-lg shadow-md">
+      <h2 className="text-2xl font-semibold text-gray-800 mb-4 border-b-2 border-gray-800">Supplier Nationwide</h2>
+      <p className="text-base text-gray-600 leading-relaxed">
+      As a construction rental company, we offer nationwide access to top-quality equipment and machinery, ensuring reliable support for your projects across the country.
+      </p>
+    </div>
+  </div>
+  <div className="m-2 w-1/3">
+    <div className="bg-white p-6 h-auto rounded-lg shadow-md">
+      <h2 className="text-2xl font-semibold text-gray-800 mb-4 border-b-2 border-gray-800">We Handle Everything</h2>
+      <p className="text-base text-gray-600 leading-relaxed">
+      We handle everything – from equipment delivery and setup to maintenance, so you can focus on your construction project with peace of mind.
+      </p>
+    </div>
+  </div>
+</div>
+
+
+<div class="flex items-center p-8">
+  <div class="w-1/2 pr-4">
+    <p class="text-gray-800 text-lg leading-7">Welcome to [Equipment Rentals], your one-stop destination for everything related to construction materials. In this insightful video, we delve deep into the world of construction, uncovering the building blocks of your dream projects.</p>
+    <br /><br />
+    <p class="text-gray-800 text-lg leading-7">At [Equipment Rentals], we are passionate about construction and dedicated to sharing our expertise with you. Explore our video library and embark on a journey of discovery, where every video offers a wealth of information, inspiration, and solutions.</p>
+  </div>
+  <div class="w-1/2">
+    <div class="relative">
+      <iframe class="w-full h-80" src="/src/assets/components/images/homePageVideo.mp4" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+
+
+
+    
+
+
+
+</body>
      </>
     <Outlet/>
     </>
