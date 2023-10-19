@@ -37,7 +37,7 @@ router.post('/addOrUpdate', async (req, res) => {
 });
 
 
-router.get('/:id', async (req, res) => {
+router.get('/find:id', async (req, res) => {
     try {
         const record = await googleauth.findById(req.params.id);
         if (!record) {

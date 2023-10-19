@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import { GoogleLogin } from '@react-oauth/google'; 
 import jwtDecode from 'jwt-decode';
 import { useNavigate } from 'react-router-dom';
+import { useBearStore }from '../Navigation';
 
 export default function GoogleAuth() {
   const [serverResponse, setServerResponse] = useState(null);
   const navigate = useNavigate();
-
+  const setIsAuthenticated = useBearStore((state) => state.setIsAuthenticated);
   const handleLoginSuccess = async (credentialResponse) => {
     try {
       const credentialResponseDecode = jwtDecode(credentialResponse.credential);
@@ -26,8 +27,10 @@ export default function GoogleAuth() {
       if (response.ok) {
         const data = await response.json();
         console.log('Server response:', data);
+        setIsAuthenticated(true);
         setServerResponse(data);
-        navigate('/Dashboard'); // Navigate to the Dashboard route
+        navigate('/Dashboard'); 
+   
       } else {
         console.error('Server responded with an error:', response.statusText);
       }
@@ -37,7 +40,7 @@ export default function GoogleAuth() {
   };
 
   const handleLoginError = () => {
-    console.log('Login Failed');
+    console.error('Login Failed');
   };
 
   return (
@@ -47,7 +50,6 @@ export default function GoogleAuth() {
         onError={handleLoginError}
       />
 
- 
       {serverResponse && <div>{JSON.stringify(serverResponse)}</div>}
     </>
   );

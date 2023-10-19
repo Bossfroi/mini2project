@@ -1,33 +1,39 @@
-import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Home from '../Home';
-import Categories from '../Categories';
-import ContactUs from '../ContactUs';
-import About from '../About';
-import News from '../News';
-import Login from '../Login';
-import Signup from '../Signup';
-import Navigation from '../Navigation';
-import Index from '../logged/HomeLoged';
+  import React from 'react';
+  import { BrowserRouter, Route, Routes } from 'react-router-dom';
+  import Home from '../Home';
+  import Categories from '../Categories';
+  import ContactUs from '../ContactUs';
+  import About from '../About';
+  import News from '../News';
+  import Login from '../Login';
+  import Signup from '../Signup';
+  import Navigation from '../Navigation';
+  import Index from '../logged/HomeLoged';
+  import NavigationLoged from '../logged/Navigationloged';
+  import Notfound from '../Notfound';
+  
+  export default function AppRoute({ children }) {
+    return (
+      <BrowserRouter>
+      
+        <Navigation />
+      
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/Categories" element={<Categories />} />
+          <Route path="/ContactUs" element={<ContactUs />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/news" element={<News />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/Dashboard" element={<Index />} />
+          <Route path="/logout" element={<Login />} />
+          <Route path="*" element={<Notfound/>}/>
+        
+          {children}
+        </Routes>
 
-export default function AppRoute() {
-  return (
-    <BrowserRouter>
-      <Navigation />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/Categories" element={<Categories />} />
-        <Route path="/ContactUs" element={<ContactUs />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/news" element={<News />} />
-        <Route path="/login" element={<Login />} />
-         
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/Dashboard " element={<Index />} />
-      </Routes>
-    </BrowserRouter>
-
-    
-  );
-}
+      </BrowserRouter>
+    );
+  }
