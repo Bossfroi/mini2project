@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Outlet } from "react-router-dom";
 
 export default function ContactUs() {
   return (
@@ -36,6 +36,7 @@ export default function ContactUs() {
         <button type="submit" className="bg-blue-500 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-600 transition duration-300">Submit</button>
       </form>
     </div>
+    <Outlet/>
    </>
   )
 }

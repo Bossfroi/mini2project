@@ -46,9 +46,10 @@ export default function Home() {
         From the foundation of your dreams to the towering heights of your ambitions, our extensive selection of top-quality construction equipment rentals is here to provide you with the tools, support, and reliability you need. We're more than just equipment.
       </p>
       <div className="flex space-x-4">
-        <button className="px-4 sm:px-6 py-2 sm:py-3 text-white bg-gradient-to-r from-red-500 to-red-600 rounded-full hover:from-red-600 hover:to-red-700 hover:shadow-lg transition duration-300">
-          Sign Up Free
-        </button>
+       
+        <a href="./Signup" className=" px-4 sm:px-6 py-2 sm:py-3 text-white bg-gradient-to-r from-red-500 to-red-600 rounded-full hover:from-red-600 hover:to-red-700 hover:shadow-lg transition duration-300">
+          Sign-up For Free
+          </a>
         <button className="px-4 sm:px-6 py-2 sm:py-3 text-red-500 border border-red-500 rounded-full hover:bg-red-100 hover:text-red-600 hover:border-red-600 hover:shadow-lg transition duration-300">
           Questions? We Can Help
         </button>

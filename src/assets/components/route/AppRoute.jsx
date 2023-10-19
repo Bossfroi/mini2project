@@ -9,7 +9,7 @@ import Login from '../Login';
 import Signup from '../Signup';
 import Navigation from '../Navigation';
 import Index from '../logged/HomeLoged';
-import NavigationLoged from '../logged/Navigationloged';
+
 export default function AppRoute() {
   return (
     <BrowserRouter>

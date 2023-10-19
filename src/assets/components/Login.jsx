@@ -17,6 +17,8 @@ export default function Login() {
               type="email"
               id="email"
               name="email"
+              required
+              autoComplete='on'
               className="w-full p-2 border border-dark-300 rounded-md"
             />
           </div>
@@ -28,6 +30,8 @@ export default function Login() {
               type="password"
               id="password"
               name="password"
+              required
+              autoComplete='on'
               className="w-full p-2 border border-dark-300 rounded-md"
             />
           </div>

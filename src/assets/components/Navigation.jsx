@@ -1,5 +1,4 @@
 import React from 'react';
-
 export default function Navigation() {
   const NavMenu = [
     {
@@ -51,6 +50,7 @@ export default function Navigation() {
           </div>
         </nav>
       </header>
+
     </>
   );
 }

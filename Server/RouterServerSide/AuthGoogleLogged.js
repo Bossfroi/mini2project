@@ -1,66 +1,67 @@
 const router = require('express').Router();
-let googleauth = require('../model/googleauthmodel');
+const googleauth = require('../model/googleauthmodel');
 
-// home
-router.route('/').get((req, res)=> {
-
-    googleauth.find()
-        .then(googleauth => res.json(googleauth))
-        .catch(err => res.status(400).json('Error :' + err));
-
+// Get all records
+router.get('/', async (req, res) => {
+    try {
+        const records = await googleauth.find();
+        res.json(records);
+    } catch (err) {
+        res.status(400).json('Error: ' + err);
+    }
 });
 
-// add
-router.route('/add').post((req, res)=> {
+// Add a new record or update an existing record based on email
+router.post('/addOrUpdate', async (req, res) => {
+    const { name, family_name, email, picture } = req.body;
 
-    const name = req.body.name;
-    const family_name = req.body.family_name;
-    const email = req.body.email;
-    const picture = req.body.picture;
+    try {
+        const existingRecord = await googleauth.findOne({ email });
 
-    const newgoogleauthDeclaration = new googleauth({name, family_name, email, picture});
+        if (existingRecord) {
+        
+            existingRecord.name = name;
+            existingRecord.family_name = family_name;
+            existingRecord.picture = picture;
+            await existingRecord.save();
+            res.json('Record was updated!');
+        } else {
 
-    newgoogleauthDeclaration.save()
-        .then(googleauth => res.json('New Record Added!'))
-        .catch(err => res.status(400).json('Error :' + err));
-
+            const newGoogleAuthRecord = new googleauth({ name, family_name, email, picture });
+            await newGoogleAuthRecord.save();
+            res.json('New Record Added!');
+        }
+    } catch (err) {
+        res.status(400).json('Error: ' + err);
+    }
 });
 
 
-// details
-router.route('/:id').get((req, res)=> {
-    googleauth.findById(req.params.id)
-    .then(googleauth => res.json(googleauth))
-    .catch(err => res.status(400).json('Error: '+ err));
+router.get('/:id', async (req, res) => {
+    try {
+        const record = await googleauth.findById(req.params.id);
+        if (!record) {
+            res.status(404).json('Record not found');
+        } else {
+            res.json(record);
+        }
+    } catch (err) {
+        res.status(400).json('Error: ' + err);
+    }
 });
 
-// delete
-router.route('/:id').delete((req, res)=> {
-    googleauth.findByIdAndDelete(req.params.id)
-    .then(googleauth => res.json('Record was deleted.'))
-    .catch(err => res.status(400).json('Error: '+ err));
-});
-
-// update
-
-// update
-router.route('/update/:id').post((req, res) => {
-    googleauth.findById(req.params.id) 
-        .then(googleauth => {
-            if (!googleauth) {
-                return res.status(404).json('Record not found');
-            }
-
-            googleauth.name = req.body.name;
-            googleauth.family_name = req.body.family_name;
-            googleauth.email = req.body.email;
-            googleauth.picture = req.body.picture;
-
-            googleauth.save()
-                .then(() => res.json('Record was updated!'))
-                .catch(err => res.status(400).json('Error: ' + err));
-        })
-        .catch(err => res.status(400).json('Error: ' + err));
+// Delete a record by ID
+router.delete('/:id', async (req, res) => {
+    try {
+        const record = await googleauth.findByIdAndDelete(req.params.id);
+        if (!record) {
+            res.status(404).json('Record not found');
+        } else {
+            res.json('Record was deleted.');
+        }
+    } catch (err) {
+        res.status(400).json('Error: ' + err);
+    }
 });
 
 module.exports = router;
