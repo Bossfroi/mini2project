@@ -11,6 +11,7 @@
   import Index from '../logged/HomeLoged';
   import NavigationLoged from '../logged/Navigationloged';
   import Notfound from '../Notfound';
+  import Footer from '../Footer';
   
   export default function AppRoute({ children }) {
     return (
@@ -30,6 +31,8 @@
           <Route path="/Dashboard" element={<Index />} />
           <Route path="/logout" element={<Login />} />
           <Route path="*" element={<Notfound/>}/>
+          <Route path="/" element={<Footer />} />
+          
         
           {children}
         </Routes>
