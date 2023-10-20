@@ -10,6 +10,7 @@
   import Navigation from '../Navigation';
   import Index from '../logged/HomeLoged';
   import Notfound from '../Notfound';
+  import Footer from '../Footer';
   import Rent from '../logged/Rent'
   import Cart from '../logged/Cart'
   import Logout from '../logged/logout';
@@ -33,6 +34,8 @@
           <Route path="/Rent" element={<Rent />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="*" element={<Notfound/>}/>
+          <Route path="/" element={<Footer />} />
+          
         
           {children}
         </Routes>
