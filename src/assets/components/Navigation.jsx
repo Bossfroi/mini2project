@@ -1,28 +1,28 @@
 import React from 'react';
+import { Link, Route } from 'react-router-dom';
 import { create } from 'zustand';
-import { Link } from 'react-router-dom';
-
 const useBearStore = create((set) => ({
   setIsAuthenticated: (value) => set({ isAuthenticated: value }),
 }));
-
 export { useBearStore };
+
+
 
 export default function Navigation() {
   const isAuthenticated = useBearStore((state) => state.isAuthenticated);
  
   const NavMenu = [
     {
-      Title: 'Home',
-      Link: '/Home',
+      Title: isAuthenticated ? 'Dashboard': 'Home',
+      Link: isAuthenticated ? '/Dashboard': '/Home',
     },
     {
-      Title: 'Categories',
-      Link: '/Categories',
+      Title:isAuthenticated ? 'Rent': 'Categories',
+      Link: isAuthenticated ? '/Rent': '/Rent',
     },
     {
-      Title: 'contactUs',
-      Link: '/ContactUs',
+      Title: isAuthenticated ? 'Cart': 'Contactus',
+      Link: isAuthenticated ? '/Cart': '/Contactus',
     },
     {
       Title: 'About',
@@ -34,8 +34,9 @@ export default function Navigation() {
     },
     {
       Title: isAuthenticated ? 'Logout' : 'Login', 
-      Link: isAuthenticated ? '/logout' : '/login', 
+      Link: isAuthenticated  ? '/logout' : '/login',    
     },
+   
   ];
 
   return (

@@ -9,9 +9,10 @@
   import Signup from '../Signup';
   import Navigation from '../Navigation';
   import Index from '../logged/HomeLoged';
-  import NavigationLoged from '../logged/Navigationloged';
   import Notfound from '../Notfound';
-  
+  import Rent from '../logged/Rent'
+  import Cart from '../logged/Cart'
+  import Logout from '../logged/logout';
   export default function AppRoute({ children }) {
     return (
       <BrowserRouter>
@@ -28,7 +29,9 @@
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/Dashboard" element={<Index />} />
-          <Route path="/logout" element={<Login />} />
+          <Route path="/Cart" element={<Cart />} />
+          <Route path="/Rent" element={<Rent />} />
+          <Route path="/logout" element={<Logout />} />
           <Route path="*" element={<Notfound/>}/>
         
           {children}
