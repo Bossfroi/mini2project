@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, Route } from 'react-router-dom';
+
 import { create } from 'zustand';
 const useBearStore = create((set) => ({
   setIsAuthenticated: (value) => set({ isAuthenticated: value }),
@@ -18,7 +19,7 @@ export default function Navigation() {
     },
     {
       Title:isAuthenticated ? 'Rent': 'Categories',
-      Link: isAuthenticated ? '/Rent': '/Rent',
+      Link: isAuthenticated ? '/Rent': '/Categories',
     },
     {
       Title: isAuthenticated ? 'Cart': 'Contactus',
