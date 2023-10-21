@@ -112,8 +112,6 @@ export default function Home() {
     </div>
   </div>
 </div>
-
-
 <div class="flex items-center p-8">
   <div class="w-1/2 pr-4">
     <p class="text-gray-800 text-lg leading-7">Welcome to [Equipment Rentals], your one-stop destination for everything related to construction materials. In this insightful video, we delve deep into the world of construction, uncovering the building blocks of your dream projects.</p>
