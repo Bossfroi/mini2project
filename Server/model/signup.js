@@ -16,7 +16,7 @@ const registerSchema = new Schema({
         type: String,
         required: true,
         trim: true,
-        unique: true // Ensure unique email addresses
+  
     },
     picture: {
         type: String,

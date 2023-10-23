@@ -1,14 +1,13 @@
-// server/routes/signup.js
 const express = require('express');
 const router = express.Router();
 const Register = require('../model/signup');
 
 // Create or update a user based on email
 router.post('/register', async (req, res) => {
-  const { name, family_name, email, picture, password,confirmPassword } = req.body;
+  const { name, family_name, email, picture, password, confirmPassword } = req.body;
 
   try {
-    let user = await Register.findOne({ email });
+    var user = await Register.findOne({ email });
 
     if (user) {
       // Update the existing user's information
@@ -17,7 +16,17 @@ router.post('/register', async (req, res) => {
       user.password = password;
     } else {
       // Create a new user if they don't exist
-      user = new Register( name, family_name, email, picture, password,confirmPassword );
+      user = new Register({
+        name,
+        family_name,
+        email,
+        picture,
+        password,
+      });
+    }
+
+    if (password !== confirmPassword) {
+      return res.status(400).json({ error: 'Passwords do not match' });
     }
 
     await user.save();
