@@ -7,17 +7,20 @@ export default function About() {
    <>
     <body>
     <div className="relative">
-    <img
-      src="/src/assets/components/images/hero1.jpg"
-      alt=""
-      className="w-full h-auto filter blur-sm"
-    />
-      <div className="absolute inset-0 flex items-center justify-center bg-gray-900 bg-opacity-70 text-white">
-        <p className="p-4 md:p-8 lg:p-12 text-3xl md:text-4xl lg:text-5xl font-extrabold text-center leading-snug">
-          Empowering Construction Excellence Through Premium Rentals Your Trusted Resource for Quality Equipment and Tools. Build Smarter, Build Faster with Our Unmatched Rental Solutions.
-        </p>
-      </div>
-    </div>
+  <img
+    src="/src/assets/components/images/hero1.jpg"
+    alt=""
+    className="w-full h-auto filter blur-sm"
+  />
+  <div className="absolute inset-0 flex items-center justify-center bg-gray-900 bg-opacity-70 text-white">
+    <p className="p-2 text-sm xxs:text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-center leading-snug xxs:p-3 xs:p-4 sm:p-6 md:p-8 lg:p-12 xl:p-16">
+      Empowering Construction Excellence Through Premium Rentals Your Trusted Resource for Quality Equipment and Tools. Build Smarter, Build Faster with Our Unmatched Rental Solutions.
+    </p>
+  </div>
+</div>
+
+
+
     
     <div className="container mx-auto p-7 bg-red-200">
     <h1 className="text-3xl font-bold mb-4">Our Core Pillars</h1>
