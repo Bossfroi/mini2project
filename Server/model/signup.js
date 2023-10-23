@@ -1,8 +1,7 @@
 const mongoose = require('mongoose');
-
 const Schema = mongoose.Schema;
 
-const authgoogleschema = new Schema({
+const registerSchema = new Schema({
     name: {
         type: String,
         required: true,
@@ -16,18 +15,24 @@ const authgoogleschema = new Schema({
     email: {
         type: String,
         required: true,
-        trim: true
+        trim: true,
+        unique: true // Ensure unique email addresses
     },
     picture: {
         type: String,
         required: true,
         trim: true
     },
- 
+    password: {
+        type: String,
+        required: true,
+        trim: true
+    },
+
 }, {
     timestamps: true
 });
 
-const authGoogle = mongoose.model('authGoogle', authgoogleschema);
+const register = mongoose.model('authgoogles', registerSchema);
 
-module.exports = authGoogle;
+module.exports = register;
