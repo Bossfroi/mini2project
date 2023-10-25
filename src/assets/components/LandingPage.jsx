@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const ItemDescription = (props) => {
-  const { categoryList } = props; // Destructure categoryList from props
+  const { categoryList } = props; 
 
   return (
      <div>

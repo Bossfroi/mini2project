@@ -64,73 +64,92 @@ export default function Home() {
     </div>
   </div>
 
-  <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 pt-8'>
-    <div className="m-2">
-      <div className="bg-gray-800 p-6 h-auto rounded-lg shadow-md text-white">
-        <h2 className="text-2xl font-semibold mb-4 border-b-2 border-gray-700">Easy Online Rentals</h2>
-        <p className="text-base leading-relaxed">
-          Rent without the hassle of a phone call. Place, view, and manage your orders anytime, through any device using our online portal.
-        </p>
-      </div>
-    </div>
-    <div className="m-2">
-      <div className="bg-gray-800 p-6 h-auto rounded-lg shadow-md text-white">
-        <h2 className="text-2xl font-semibold mb-4 border-b-2 border-gray-700">Supplier Nationwide</h2>
-        <p className="text-base leading-relaxed">
-          As a construction rental company, we offer nationwide access to top-quality equipment and machinery, ensuring reliable support for projects.
-        </p>
-      </div>
-    </div>
-    <div className="m-2">
-      <div className="bg-gray-800 p-6 h-auto rounded-lg shadow-md text-white">
-        <h2 className="text-2xl font-semibold mb-4 border-b-2 border-gray-700">We Handle Everything</h2>
-        <p className="text-base leading-relaxed">
-          We handle everything – from equipment delivery and setup to maintenance, so you can focus on your construction project with peace of mind.
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <div className="flex flex-col-reverse md:flex-row items-center p-4 lg:p-8">
-    <div className="w-full md:w-1/2 p-4 bg-gray-800 p-6 md:p-8 h-auto rounded-lg shadow-md text-white">
-      <p className="text-base md:text-xl leading-7">
-        Welcome to [Equipment Rentals], your one-stop destination for everything related to construction materials. In this insightful video, we delve deep into the world of construction, uncovering the building blocks of your dream projects.
-      </p>
-      <br /><br />
-      <p className="text-base md:text-xl leading-7">
-        At [Equipment Rentals], we are passionate about construction and dedicated to sharing our expertise with you. Explore our video library and embark on a journey of discovery, where every video offers a wealth of information, inspiration, and solutions.
-      </p>
-    </div>
-    <div className="w-full md:w-1/2 p-4 md:p-8">
-      <div className="relative">
-        <iframe className="w-full h-80 rounded-lg" src="/src/assets/components/images/homePageVideo.mp4" frameBorder="0" allowFullScreen title="Home Video"></iframe>
-      </div>
-    </div>
-  </div>
-
-
-  <div className='flex flex-col sm:flex-row pt-8 pb-8'>
-    <div className='m-2 sm:w-1/2'>
-      <div className='relative h-72'>
-        <img src="/src/assets/components/images/rent-calculatorButton.jpg" alt="" className='w-full h-full object-cover rounded-2xl' />
-        <div className="absolute inset-x-0 bottom-0 flex items-center justify-center p-4 sm:p-8">
-          <button className='w-full sm:w-48 h-12 text-white font-semibold bg-blue-500 rounded-full hover:bg-blue-600 shadow-lg transition-transform transform hover:scale-105'>
-            Rent Calculator
-          </button>
+<div>
+      <div className="bg-gray-200 py-8">
+        <div className="container mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 pt-8">
+            <div className="m-2">
+              <div className="bg-gray-800 p-6 h-auto rounded-lg shadow-md text-white">
+                <h2 className="text-2xl font-semibold mb-4 border-b-2 border-gray-700">Easy Online Rentals</h2>
+                <p className="text-base leading-relaxed">
+                  Rent without the hassle of a phone call. Place, view, and manage your orders anytime, through any device using our online portal.
+                </p>
+              </div>
+            </div>
+            <div className="m-2">
+              <div className="bg-gray-800 p-6 h-auto rounded-lg shadow-md text-white">
+                <h2 className="text-2xl font-semibold mb-4 border-b-2 border-gray-700">Supplier Nationwide</h2>
+                <p className="text-base leading-relaxed">
+                As a construction rental company, we offer nationwide access to top-quality equipment and machinery, ensuring reliable support for projects.
+                </p>
+              </div>
+            </div>
+            <div className="m-2">
+              <div className="bg-gray-800 p-6 h-auto rounded-lg shadow-md text-white">
+                <h2 className="text-2xl font-semibold mb-4 border-b-2 border-gray-700">We Handle Everything</h2>
+                <p className="text-base leading-relaxed">
+                We handle everything – from equipment delivery and setup to maintenance, so you can focus on your construction project with peace of mind.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <div className='m-2 sm:w-1/2'>
-      <div className='relative h-72'>
-        <img src="/src/assets/components/images/book-nowButton.jpg" alt="" className='w-full h-full object-cover rounded-2xl' />
-        <div className="absolute inset-x-0 bottom-0 flex items-center justify-center p-4 sm:p-8">
-          <button className='w-full sm:w-48 h-12 text-white font-semibold bg-blue-500 rounded-full hover:bg-blue-600 shadow-lg transition-transform transform hover:scale-105'>
-            Book Now
-          </button>
+
+
+  <div className="bg-gray-300 py-8">
+    <div className="container mx-auto">
+      <div className="flex flex-col-reverse md:flex-row items-center p-4 lg:p-8">
+        <div className="w-full md:w-1/2 p-4 bg-gray-800 p-6 md:p-8 h-auto rounded-lg shadow-md text-white">
+          <p className="text-base md:text-xl leading-7">
+            Welcome to [Equipment Rentals], your one-stop destination for everything related to construction materials. In this insightful video, we delve deep into the world of construction, uncovering the building blocks of your dream projects.
+          </p>
+          <br /><br />
+          <p className="text-base md:text-xl leading-7">
+            At [Equipment Rentals], we are passionate about construction and dedicated to sharing our expertise with you. Explore our video library and embark on a journey of discovery, where every video offers a wealth of information, inspiration, and solutions.
+          </p>
+        </div>
+        <div className="w-full md:w-1/2 p-4 md:p-8">
+          <div className="relative">
+            <iframe className="w-full h-80 rounded-lg" src="/src/assets/components/images/homePageVideo.mp4" frameBorder="0" allowFullScreen title="Home Video"></iframe>
+          </div>
         </div>
       </div>
     </div>
   </div>
+
+
+  <div className="bg-gray-200 py-8">
+    <div className="container mx-auto">
+      <div className="flex flex-col sm:flex-row pt-8 pb-8">
+        <div className="m-2 sm:w-1/2">
+          <div className="relative h-72">
+            <img src="/src/assets/components/images/rent-calculatorButton.jpg" alt="" className="w-full h-full object-cover rounded-2xl" />
+            <div className="absolute inset-x-0 bottom-0 flex items-center justify-center p-4 sm:p-8">
+            <a href="./RentCalculator">
+              <button className="w-full sm:w-48 h-12 text-white font-semibold bg-blue-500 rounded-full hover:bg-blue-600 shadow-lg transition-transform transform hover:scale-105">
+                Rent Calculator
+              </button>
+            </a>
+            </div>
+          </div>
+        </div>
+        <div className="m-2 sm:w-1/2">
+          <div className="relative h-72">
+            <img src="/src/assets/components/images/book-nowButton.jpg" alt="" className="w-full h-full object-cover rounded-2xl" />
+            <div className="absolute inset-x-0 bottom-0 flex items-center justify-center p-4 sm:p-8">
+              <a href="">
+              <button className="w-full sm:w-48 h-12 text-white font-semibold bg-blue-500 rounded-full hover:bg-blue-600 shadow-lg transition-transform transform hover:scale-105">
+                Book Now
+              </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 </body>
 <Footer/>

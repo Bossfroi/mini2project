@@ -15,6 +15,8 @@
   import Cart from '../logged/Cart'
   import Logout from '../logged/logout';
   import LandingPage from '../LandingPage';
+  import RentCalculator from '../RentCalculator';
+  
   
   
 
@@ -23,7 +25,6 @@
       <BrowserRouter>
       
         <Navigation />
-      
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
@@ -39,10 +40,8 @@
           <Route path="/logout" element={<Logout />} />
           <Route path="*" element={<Notfound/>}/>
           <Route path="/" element={<Footer />} />
-          <Route path="LandingPage" element={<LandingPage />} />
-          
-          
-        
+          <Route path="/LandingPage" element={<LandingPage />} />
+          <Route path="/RentCalculator" element={<RentCalculator />} />
           {children}
         </Routes>
 
