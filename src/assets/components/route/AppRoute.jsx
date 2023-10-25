@@ -14,6 +14,10 @@
   import Rent from '../logged/Rent'
   import Cart from '../logged/Cart'
   import Logout from '../logged/logout';
+  import LandingPage from '../LandingPage';
+  
+  
+
   export default function AppRoute({ children }) {
     return (
       <BrowserRouter>
@@ -35,10 +39,14 @@
           <Route path="/logout" element={<Logout />} />
           <Route path="*" element={<Notfound/>}/>
           <Route path="/" element={<Footer />} />
+          <Route path="LandingPage" element={<LandingPage />} />
+          
           
         
           {children}
         </Routes>
+
+        
 
       </BrowserRouter>
     );
