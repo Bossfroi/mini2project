@@ -5,7 +5,7 @@ import Footer from './Footer';
 export default function About() {
   return (
    <>
-    <body>
+    
     <div className="relative">
   <img
     src="/src/assets/components/images/hero1.jpg"
@@ -38,8 +38,8 @@ export default function About() {
       </div>
 
   
-      <div class="w-full md:w-1/2 lg:w-1/3 p-20 mt-4 md:mt-0 bg-red-500">
-        <h2 class="text-xl font-bold">Customer Service and Support:</h2>
+      <div className="w-full md:w-1/2 lg:w-1/3 p-20 mt-4 md:mt-0 bg-red-500">
+        <h2 className="text-xl font-bold">Customer Service and Support:</h2>
         <p>Exceptional customer service and support are vital for building long-lasting relationships with construction industry professionals. Providing expert advice on equipment selection, training and technical assistance, flexible rental terms, and responsive support for maintenance and repairs are all critical aspects of this pillar.</p>
       </div>
     </div>
@@ -47,30 +47,25 @@ export default function About() {
 
   <br /><br /><br />
     
-<div class="flex">
+<div className="flex">
   
-  <div class="w-1/2 p-4">
+  <div className="w-1/2 p-4">
     <img 
     src="/src/assets/components/images/aboutTruck.jpg" 
     alt=""
     className='rounded-lg'
     />
   </div>
-  
-
-      
-  <div class="w-1/2 p-4">
-    <div class="bg-red-600 rounded-lg p-10">
-        <h2 class="text-3xl font-extrabold text-white mb-4 border-b-4 border-yellow-300 pb-2">Our Business</h2>
-        <p class="text-white">
+     
+  <div className="w-1/2 p-4">
+    <div className="bg-red-600 rounded-lg p-10">
+        <h2 className="text-3xl font-extrabold text-white mb-4 border-b-4 border-yellow-300 pb-2">Our Business</h2>
+        <p className="text-white">
         At Construction Rentals Excellence, we're dedicated to empowering the construction industry with premium rental solutions. With a rich inventory of top-quality equipment and tools, we serve as your trusted resource for all your construction needs. From heavy machinery to power tools and safety equipment, our comprehensive range ensures that you have access to the best tools in the business. We take pride in our commitment to excellence, offering equipment that is well-maintained and reliable. Our mission is to help you build smarter and faster, ensuring unmatched rental solutions that propel your projects to success. With our exceptional customer service, accessibility, and unwavering dedication, we're your partner in construction excellence.
       </p>
     </div>
   </div>
 </div>
-
-
-    </body>
     <Footer/>
     <Outlet/>
    </>

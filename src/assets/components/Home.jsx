@@ -87,7 +87,7 @@ export default function Home() {
             <div className="absolute inset-x-0 bottom-0 flex items-center justify-center p-4 sm:p-8">
               <a href="">
               <button className="w-full sm:w-48 h-12 text-white font-semibold bg-blue-500 rounded-full hover:bg-blue-600 shadow-lg transition-transform transform hover:scale-105">
-                Book Now
+                Shipping Fee Calculator
               </button>
               </a>
             </div>

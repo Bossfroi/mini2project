@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+
 import Navigation from './Navigation';
 import ProductLine from './ProductLine';
 import backgroundImage from './images/category-page-wall.jpg';
-import RentCalculator from './RentCalculator'; // Import the RentCalculator component
+
 import Footer from './Footer';
 
 
@@ -171,9 +172,11 @@ export default function Categories() {
       discription: "Our trencher attachment is made of the highest quality hydraulic motors that allow flow rates of up to 150LPM. They have the reliability and power you need to carry out any trenching jobs with ease.",
       rentalAmount: 2400
     },
+    
 
   ]
-  
+  const [searchTerm, setSearchTerm] = useState('');
+
   
   
   const bodyStyles = {
@@ -188,22 +191,30 @@ export default function Categories() {
       <h1 className="text-3xl font-extrabold text-gray-900 leading-tight mb-4">Product Line</h1>
       <p className="text-gray-600 text-lg">Browse our selection of top quality construction and heavy equipment only from the world’s leading manufacturers.</p>
     </div>
-
-      
-    <body style={bodyStyles}>
-        <div className="flex p-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 grid-rows-1 sm:grid-rows-2 md:grid-rows-3 lg:grid-rows-4 xl:grid-rows-4 gap-20">
-          {categoryList.map((cat) => (
-            <Link to={cat.link} key={cat.id}>
-              <ProductLine
-              title={cat.title} 
-              picture={cat.picture}/>
-            </Link>
-            
-          ))}
-        </div>
-        <RentCalculator categoryList={categoryList} />
-      </body>
-      
+    
+    
+    <div style={bodyStyles}>
+      <div className="p-8 ">
+        <input
+          className="h-8 w-80 "
+          type="text"
+          placeholder="Search categories..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+      </div>
+      <div className="flex p-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 grid-rows-1 sm:grid-rows-2 md:grid-rows-3 lg:grid-rows-4 xl:grid-rows-4 gap-20">
+      {categoryList
+    .filter((cat) =>
+      cat.title.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+    .map((cat) => (
+      <Link to={cat.link} key={cat.id}>
+        <ProductLine title={cat.title} picture={cat.picture} />
+      </Link>
+    ))}
+      </div>
+    </div>
       <Footer/>
    
    </>
