@@ -2,6 +2,7 @@ import React from 'react'
 import Navigation from './Navigation'
 import { Outlet } from "react-router-dom";
 import backgroundImage from './images/home-page-wallpaper.jpg';
+
 import Footer from './Footer';
 
 
@@ -65,7 +66,38 @@ export default function Home() {
   </div>
 
 <div>
-      <div className="bg-gray-200 py-8">
+<div className="bg-gray-200 py-8">
+    <div className="container mx-auto">
+      <div className="flex flex-col sm:flex-row pt-8 pb-8">
+        <div className="m-2 sm:w-1/2">
+          <div className="relative h-72">
+            <img src="/src/assets/components/images/rent-calculatorButton.jpg" alt="" className="w-full h-full object-cover rounded-2xl" />
+            <div className="absolute inset-x-0 bottom-0 flex items-center justify-center p-4 sm:p-8">
+            <a href="./RentCalculator">
+              <button className="w-full sm:w-48 h-12 text-white font-semibold bg-blue-500 rounded-full hover:bg-blue-600 shadow-lg transition-transform transform hover:scale-105">
+                Rent Calculator
+              </button>
+            </a>
+            </div>
+          </div>
+        </div>
+        <div className="m-2 sm:w-1/2">
+          <div className="relative h-72">
+            <img src="/src/assets/components/images/book-nowButton.jpg" alt="" className="w-full h-full object-cover rounded-2xl" />
+            <div className="absolute inset-x-0 bottom-0 flex items-center justify-center p-4 sm:p-8">
+              <a href="">
+              <button className="w-full sm:w-48 h-12 text-white font-semibold bg-blue-500 rounded-full hover:bg-blue-600 shadow-lg transition-transform transform hover:scale-105">
+                Book Now
+              </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+      <div className="bg-gray-300 py-8">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 pt-8">
             <div className="m-2">
@@ -97,7 +129,7 @@ export default function Home() {
       </div>
 
 
-  <div className="bg-gray-300 py-8">
+  <div className="bg-gray-200 py-8">
     <div className="container mx-auto">
       <div className="flex flex-col-reverse md:flex-row items-center p-4 lg:p-8">
         <div className="w-full md:w-1/2 p-4 bg-gray-800 p-6 md:p-8 h-auto rounded-lg shadow-md text-white">
@@ -119,36 +151,7 @@ export default function Home() {
   </div>
 
 
-  <div className="bg-gray-200 py-8">
-    <div className="container mx-auto">
-      <div className="flex flex-col sm:flex-row pt-8 pb-8">
-        <div className="m-2 sm:w-1/2">
-          <div className="relative h-72">
-            <img src="/src/assets/components/images/rent-calculatorButton.jpg" alt="" className="w-full h-full object-cover rounded-2xl" />
-            <div className="absolute inset-x-0 bottom-0 flex items-center justify-center p-4 sm:p-8">
-            <a href="./RentCalculator">
-              <button className="w-full sm:w-48 h-12 text-white font-semibold bg-blue-500 rounded-full hover:bg-blue-600 shadow-lg transition-transform transform hover:scale-105">
-                Rent Calculator
-              </button>
-            </a>
-            </div>
-          </div>
-        </div>
-        <div className="m-2 sm:w-1/2">
-          <div className="relative h-72">
-            <img src="/src/assets/components/images/book-nowButton.jpg" alt="" className="w-full h-full object-cover rounded-2xl" />
-            <div className="absolute inset-x-0 bottom-0 flex items-center justify-center p-4 sm:p-8">
-              <a href="">
-              <button className="w-full sm:w-48 h-12 text-white font-semibold bg-blue-500 rounded-full hover:bg-blue-600 shadow-lg transition-transform transform hover:scale-105">
-                Book Now
-              </button>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  
 </div>
 
 </body>
