@@ -9,6 +9,7 @@ const port = process.env.PORT || 5000;
 
 const googleauth = require('./RouterServerSide/AuthGoogleLogged');
 const Signup = require('./RouterServerSide/signupregister');
+const register = require('./RouterServerSide/login');
 
 app.use(cors());
 app.use(express.json());
@@ -25,6 +26,7 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
 
   app.use('/authGoogle', googleauth);
   app.use('/SignupRegs', Signup);
+  app.use('/login', register);
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);

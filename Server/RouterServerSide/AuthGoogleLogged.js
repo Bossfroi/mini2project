@@ -1,8 +1,9 @@
 const router = require('express').Router();
+const { default: GoogleAuth } = require('../../src/assets/components/API/GoogleAuth');
 const googleauth = require('../model/googleauthmodel');
 
 // Get all records
-router.get('/', async (req, res) => {
+router.get('/all', async (req, res) => {
     try {
         const records = await googleauth.find();
         res.json(records);

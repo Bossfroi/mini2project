@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import GoogleAuth from './API/GoogleAuth';
 
-
 export default function Login() {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
   });
-
+  const [serverResponse, setServerResponse] = useState(null);
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -16,18 +15,21 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-
-      const response = await fetch('/api/login', {
-        method: 'POST',
+      const response = await fetch('/login/insert?email=${formData.email}&password=${formData.password}', {
+        method: 'GET',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
       });
-
+  
       if (response.ok) {
         // Handle successful login (e.g., redirect to the dashboard)
-        console.log('Login successful');
+        const data = await response.json();
+        console.log('Server response:', data);
+        // Set isAuthenticated if needed
+        setServerResponse(data);
+        // Navigate to the dashboard or handle it as required
+        // navigate('/Dashboard');
       } else {
         // Handle login errors (e.g., display error messages)
         console.error('Login failed');
@@ -36,11 +38,15 @@ export default function Login() {
       console.error('An error occurred', error);
     }
   };
-
+  
   return (
     <section className="bg-gray-100 flex items-center justify-center mt-2">
       <div className="bg-slate-50 p-8 w-96 shadow-md mt-2 justify-center">
-        <img className="flex-auto" src="/src/assets/components/images/Logo.png" alt="Logo" />
+        <img
+          className="flex-auto"
+          src="/src/assets/components/images/Logo.png"
+          alt="Logo"
+        />
         <h2 className="text-2xl font-semibold mb-4">Login</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
@@ -73,7 +79,10 @@ export default function Login() {
               onChange={handleInputChange}
             />
           </div>
-          <button type="submit" className="bg-sky-600 shadow-lg py-2 px-4 rounded-md hover:bg-red-700">
+          <button
+            type="submit"
+            className="bg-sky-600 shadow-lg py-2 px-4 rounded-md hover:bg-red-700"
+          >
             Login
           </button>
 
@@ -89,7 +98,10 @@ export default function Login() {
           <div className="mt-2 ml-14">
             <GoogleAuth />
             <br />
-            <a href="/Signup" className="bg-sky-600 shadow-lg mt-12 ml-6 py-1 px-2 rounded-md hover:bg-red-700">
+            <a
+              href="/Signup"
+              className="bg-sky-600 shadow-lg mt-12 ml-6 py-1 px-2 rounded-md hover-bg-red-700"
+            >
               Sign-up Manually
             </a>
           </div>
