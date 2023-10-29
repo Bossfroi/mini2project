@@ -29,7 +29,9 @@ export default function GoogleAuth() {
         console.log('Server response:', data);
         setIsAuthenticated(true);
         setServerResponse(data);
+        window.alert('successful Logged');
         navigate('/Dashboard'); 
+        localStorage.setItem('user', JSON.stringify(data)); 
    
       } else {
         console.error('Server responded with an error:', response.statusText);

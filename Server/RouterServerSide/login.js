@@ -1,32 +1,36 @@
+// routes/login.js
 const router = require('express').Router();
-const googleauth = require('../model/googleauthmodel');
+const User = require('../model/signup'); // Import your user model
 
-router.post('/insert', async (req, res) => {
+// Existing login route
+router.post('/', async (req, res) => {
+  const { email, password } = req.body;
   try {
-    const { email, password } = req.body;
-
-    const user = await googleauth.findOne({ email });
-
-    if (!email || !password) {
-      return res.status(400).json({ error: 'Email and password are required.' });
+    // Check for user existence and validate password
+    const user = await User.findOne({ email });
+    if (!user || user.password !== password) {
+      return res.status(401).json({ error: 'Invalid email or password' });
     }
-
-    if (user) {
-      // Handle successful login (e.g., redirect to the dashboard)
-      const data = await response.json();
-      console.log('Server response:', data);
-
-      // Set isAuthenticated if needed
-      setServerResponse(data);
-
-      // Navigate to the dashboard or handle it as required
-      navigate('/Dashboard');
-    } else {
-      // Handle login errors (e.g., display error messages)
-      console.error('Login failed');
-    }
+    
+    return res.status(200).json({ message: 'Login successful' });
   } catch (error) {
     console.error('An error occurred', error);
+    return res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// Read Single User by ID route
+router.get('/', async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id);
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+    
+    return res.status(200).json(user);
+  } catch (error) {
+    console.error('An error occurred', error);
+    return res.status(500).json({ error: 'Internal server error' });
   }
 });
 

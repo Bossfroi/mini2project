@@ -13,6 +13,7 @@ const register = require('./RouterServerSide/login');
 
 app.use(cors());
 app.use(express.json());
+app.options('*', cors());
 
 const uri = process.env.ATLAS_URI;
 
