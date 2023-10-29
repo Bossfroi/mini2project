@@ -11,7 +11,7 @@ router.post('/', async (req, res) => {
     if (!user || user.password !== password) {
       return res.status(401).json({ error: 'Invalid email or password' });
     }
-    
+
     return res.status(200).json({ message: 'Login successful' });
   } catch (error) {
     console.error('An error occurred', error);
@@ -19,14 +19,20 @@ router.post('/', async (req, res) => {
   }
 });
 
-// Read Single User by ID route
+// Read Single User by Email route
 router.get('/', async (req, res) => {
+  const { email } = req.query; // Assuming you pass the email as a query parameter
+
+  if (!email) {
+    return res.status(400).json({ error: 'Email is required' });
+  }
+
   try {
-    const user = await User.findById(req.params.id);
+    const user = await User.findOne({ email });
     if (!user) {
       return res.status(404).json({ error: 'User not found' });
     }
-    
+
     return res.status(200).json(user);
   } catch (error) {
     console.error('An error occurred', error);
