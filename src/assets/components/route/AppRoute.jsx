@@ -16,6 +16,7 @@
   import Logout from '../logged/logout';
   import LandingPage from '../LandingPage';
   import RentCalculator from '../RentCalculator';
+  import ShippingCalculator from '../ShippingCalculator';
   
   
   
@@ -42,6 +43,7 @@
           <Route path="/" element={<Footer />} />
           <Route path="/LandingPage" element={<LandingPage />} />
           <Route path="/RentCalculator" element={<RentCalculator />} />
+          <Route path="/ShippingCalculator" element={<ShippingCalculator />} />
           {children}
         </Routes>
 
