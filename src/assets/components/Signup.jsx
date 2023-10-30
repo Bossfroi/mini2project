@@ -8,7 +8,7 @@ export default function Signup() {
     name: '',
     family_name: '',
     email: '',
-    picture: 'src="https://icon-library.com/images/person-icon-png/person-icon-png-1.jpg"',
+    picture: 'https://icon-library.com/images/person-icon-png/person-icon-png-1.jpg',
     password: '',
     confirmPassword: ''
   });

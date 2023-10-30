@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
-import GoogleAuth from './API/GoogleAuth';
+import GoogleAuth from './API/GoogleAuth'; // Import ang Google authentication component
 import { useNavigate } from 'react-router-dom';
-import { useBearStore } from './Navigation';
-import axios from 'axios';
+import { useBearStore } from './Navigation'; // Import ng custom hook para sa navigation ng authentication
+import axios from 'axios'; // Import ng Axios para sa HTTP requests
 
 export default function Login() {
-  const navigate = useNavigate();
-  const setIsAuthenticated = useBearStore((state) => state.setIsAuthenticated);
+  const navigate = useNavigate(); // Hook para sa navigation
+  const setIsAuthenticated = useBearStore((state) => state.setIsAuthenticated); // Function para sa pag-set ng authentication status
 
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState({ // para sa form data na finilupan ng user
     email: '',
     password: '',
   });
 
+  // Function para sa pag-update ng form data kapag may pagbabago sa mga input fields
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -21,29 +22,30 @@ export default function Login() {
     }));
   };
 
+  // Function para sa pag-submit ng login form
   const handleSubmit = async (e) => {
-    e.preventDefault();
-  
+    e.preventDefault();  // pag pigil para sa pag susubmit ng walangdata so babalik sya sa login 
+
     try {
-      const response = await axios.post('http://localhost:5000/login', formData);
-  
+      const response = await axios.post('http://localhost:5000/login', formData);   // set response mula para sa localhost kung nasaan ung ginawang function ng serverside
+
       if (response.status === 200) {
-        setIsAuthenticated(true);
-        // Save user data to localStorage
+        setIsAuthenticated(true); // I-set ang authentication status para sa navigation para mag bago ang linking
+        // I-save ang user data sa localStorage
         localStorage.setItem('userData', JSON.stringify(response.data));
-        navigate('/Dashboard');
-        alert('Login Successful');
-      } else {
+        navigate('/Dashboard'); // I-navigate ang user sa Dashboard page pag nakapasok na ang data mula sa filupform
+        alert('Login Successful'); // Magpapakita ng alert para sa successful login
+      } else {  //  para ma fiter if may mali ba sa response ng pag fifilup
         const errorData = await response.data;
         console.error('Login failed:', errorData.error);
-        alert('Wrong Email and password');
+        alert('Wrong Email and password'); // Magpapakita ng alert para sa failed login
       }
     } catch (error) {
       console.error('An error occurred', error);
-      alert('DB server error');
+      alert('DB server error'); // Magpapakita ng alert para sa server error
     }
   };
-  
+
   return (
     <section className="bg-gray-100 flex items-center justify-center mt-2">
       <div className="bg-slate-50 p-8 w-96 shadow-md mt-2 justify-center">
@@ -62,7 +64,7 @@ export default function Login() {
               autoComplete="on"
               className="w-full p-2 border border-dark-300 rounded-md"
               value={formData.email}
-              onChange={handleInputChange}
+              onChange={handleInputChange} // I-link ang input field sa function para sa pag-update ng data
             />
           </div>
           <div className="mb-4">
@@ -77,14 +79,14 @@ export default function Login() {
               autoComplete="on"
               className="w-full p-2 border border-dark-300 rounded-md"
               value={formData.password}
-              onChange={handleInputChange}
+              onChange={handleInputChange} // I-link ang input field sa function para sa pag-update ng data
             />
           </div>
           <button type="submit" className="bg-sky-600 shadow-lg py-2 px-4 rounded-md hover-bg-red-700">
             Login
           </button>
 
-          {/* Add your Facebook and Google login components here */}
+          {/* Magdagdag ng mga Facebook at Google login components dito */}
           <div className="mt-2 ml-14">
             <img
               className="facebook cursor-pointer shadow-sm"
@@ -94,7 +96,7 @@ export default function Login() {
             />
           </div>
           <div className="mt-2 ml-14">
-            <GoogleAuth />
+            <GoogleAuth /> {/* I-load ang Google authentication component */}
             <br />
             <a href="/Signup" className="bg-sky-600 shadow-lg mt-12 ml-6 py-1 px-2 rounded-md hover-bg-red-700">
               Sign-up Manually
