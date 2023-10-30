@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { create } from 'zustand';
-
 const useBearStore = create((set) => ({
   isAuthenticated: false,
   setIsAuthenticated: (value) => set({ isAuthenticated: value }),

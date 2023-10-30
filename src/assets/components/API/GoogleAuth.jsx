@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
-import { GoogleLogin } from '@react-oauth/google'; 
+import { GoogleLogin } from '@react-oauth/google'; // Assuming this is a valid library
 import jwtDecode from 'jwt-decode';
 import { useNavigate } from 'react-router-dom';
-import { useBearStore }from '../Navigation';
+import { useBearStore } from '../Navigation';
 
 export default function GoogleAuth() {
   const [serverResponse, setServerResponse] = useState(null);
   const navigate = useNavigate();
   const setIsAuthenticated = useBearStore((state) => state.setIsAuthenticated);
+
   const handleLoginSuccess = async (credentialResponse) => {
     try {
       const credentialResponseDecode = jwtDecode(credentialResponse.credential);
@@ -28,11 +29,11 @@ export default function GoogleAuth() {
         const data = await response.json();
         console.log('Server response:', data);
         setIsAuthenticated(true);
+        localStorage.setItem('userdata', response);      // Store user data in localStorage
         setServerResponse(data);
-        window.alert('successful Logged');
-        navigate('/Dashboard'); 
-        localStorage.setItem('user', JSON.stringify(data)); 
-   
+        window.alert('Successful Login');
+        navigate('/Dashboard');
+        localStorage.setItem('userdata', credentialResponseJSON); 
       } else {
         console.error('Server responded with an error:', response.statusText);
       }

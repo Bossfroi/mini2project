@@ -2,7 +2,7 @@ const router = require('express').Router();
 const googleauth = require('../model/googleauthmodel');
 
 // Get all records
-router.get('/all', async (req, res) => {
+router.get('/x', async (req, res) => {
     try {
         const records = await googleauth.find();
         res.json(records);

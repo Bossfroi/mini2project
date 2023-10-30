@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import GoogleAuth from './API/GoogleAuth';
 import { useNavigate } from 'react-router-dom';
 import { useBearStore } from './Navigation';
+import axios from 'axios';
 
 export default function Login() {
   const navigate = useNavigate();
@@ -22,26 +23,18 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     try {
-      const response = await fetch('http://localhost:5000/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
+      const response = await axios.post('http://localhost:5000/login', formData);
+  
       if (response.status === 200) {
-        const data = await response.json(); 
-        console.log('Login successful:', data.message);
-        setIsAuthenticated(true);      // true if login so the navigation will update
-        navigate('/Dashboard');       // navigate dashboard
-      localStorage.setItem('user', JSON.stringify(response));       // Store user data in localStorage
-      console.log(data)
-
+        setIsAuthenticated(true);
+        // Save user data to localStorage
+        localStorage.setItem('userData', JSON.stringify(response.data));
+        navigate('/Dashboard');
+        alert('Login Successful');
       } else {
-        const errorData = await response.json();
+        const errorData = await response.data;
         console.error('Login failed:', errorData.error);
         alert('Wrong Email and password');
       }
@@ -50,6 +43,7 @@ export default function Login() {
       alert('DB server error');
     }
   };
+  
   return (
     <section className="bg-gray-100 flex items-center justify-center mt-2">
       <div className="bg-slate-50 p-8 w-96 shadow-md mt-2 justify-center">
