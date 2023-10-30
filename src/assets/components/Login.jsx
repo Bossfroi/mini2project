@@ -42,7 +42,7 @@ export default function Login() {
       }
     } catch (error) {
       console.error('An error occurred', error);
-      alert('DB server error'); // Magpapakita ng alert para sa server error
+      alert('Wrong Email and password'); // Magpapakita ng alert para sa server error
     }
   };
 

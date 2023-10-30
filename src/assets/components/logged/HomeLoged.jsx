@@ -13,9 +13,10 @@ export default function HomeLogged() {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-100">
+    <div className="min-h-screen bg-gray-100 flex flex-col md:flex-row">
+      {/* Left column */}
       {user && (
-        <div className="p-4 md:p-8 flex justify-center items-center">
+        <div className="w-full md:w-1/3 p-4 md:p-8 bg-gray-200">
           <div className="bg-white p-8 rounded-lg shadow-lg text-center animate__animated animate__fadeIn">
             <h1 className="text-3xl font-bold text-blue-600 mb-4">
               Welcome, {user.name}
@@ -29,7 +30,9 @@ export default function HomeLogged() {
           </div>
         </div>
       )}
-      <div className="bg-gray-100 py-8">
+
+      {/* Right column */}
+      <div className="w-full md:w-2/3 bg-gray-100 py-8">
         <div className="max-w-md mx-auto bg-white p-8 rounded-lg shadow-lg text-center animate__animated animate__fadeIn">
           <form action="" className="space-y-4">
             <label htmlFor="company" className="block text-gray-700">
