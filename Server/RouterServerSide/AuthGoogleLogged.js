@@ -1,6 +1,6 @@
-const router = require('express').Router();
-const googleauth = require('../model/googleauthmodel');
-
+const router = require('express').Router();//Ang router na ito ay ginagamit upang i-define ang mga endpoints o routes para sa iyong server application.
+const googleauth = require('../model/googleauthmodel'); //models design ng google auth at para maka gwa ng document structure sa mongodb
+ 
 // Get all records
 router.get('/x', async (req, res) => {
     try {

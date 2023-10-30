@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Register = require('../model/signup');
+const Register = require('../model/signup'); // Import ang user model
 
 // Create or update a user based on email
 router.post('/register', async (req, res) => {
