@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import Navigation from './Navigation';
 import ProductLine from './ProductLine';
 import backgroundImage from './images/category-page-wall.jpg';
-
 import Footer from './Footer';
 
 

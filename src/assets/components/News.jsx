@@ -1,17 +1,13 @@
 import React from 'react'
 import WeatherAPI from './API/WeatherAPI';
+import NewsConAPI from './API/NewsConAPI';
 import Footer from './Footer';
 
 const News = () => {
   return (
     <div>
-      <div className="App">
       <WeatherAPI />
-    </div>
-    
-    
-    
-    
+      <NewsConAPI/>
     <Footer/>
     </div>
     
