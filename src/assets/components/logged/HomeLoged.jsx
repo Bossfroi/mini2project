@@ -18,7 +18,7 @@ export default function HomeLogged() {
         <div className="p-4 md:p-8 flex justify-center items-center">
           <div className="bg-white p-8 rounded-lg shadow-lg text-center animate__animated animate__fadeIn">
             <h1 className="text-3xl font-bold text-blue-600 mb-4">
-              Welcome, {user.given_name}
+              Welcome, {user.name}
             </h1>
             <p className="text-lg text-gray-600">Sign in as {user.email}</p>
             <img

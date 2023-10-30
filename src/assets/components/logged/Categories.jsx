@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import Navigation from './Navigation';
+import Navigation from '../Navigation';
 import ProductLine from './ProductLine';
-import backgroundImage from './images/category-page-wall.jpg';
-import Footer from './Footer';
+import backgroundImage from '../images/category-page-wall.jpg';
+import Footer from '../Footer';
 
 
 
@@ -19,6 +19,7 @@ export default function Categories() {
       link: "/AirCompressor",
       discription: "We offer air compressor rentals and sales in the Philippines that are designed to deliver high-quality performance, reliability, and ease of use for a variety of applications. These machines power pneumatic tools and produce large volumes of air for large-scale industrial processes.",
       rentalAmount: 500
+      
     },
     {
       id: 2,

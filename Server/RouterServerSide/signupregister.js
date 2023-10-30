@@ -14,6 +14,7 @@ router.post('/register', async (req, res) => {
       user.name = name;
       user.family_name = family_name;
       user.password = password;
+      user.picture = picture;
     } else {
       // Create a new user if they don't exist
       user = new Register({

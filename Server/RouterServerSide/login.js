@@ -12,6 +12,7 @@ router.post('/', async (req, res) => {
     const userData = {
       name: user.name,
       family_name: user.family_name,
+      email: user.email,
       picture: user.picture,
     };
 
