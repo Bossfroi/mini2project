@@ -6,7 +6,7 @@ const API_KEY = '1b0b82bb0a62e61b3dd408ab1846beb7';
 
 function WeatherAPI() {
   const [weatherData, setWeatherData] = useState(null);
-  const [location, setLocation] = useState('Pontianak');
+  const [location, setLocation] = useState('manila');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 

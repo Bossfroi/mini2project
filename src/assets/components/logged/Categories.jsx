@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import Navigation from '../Navigation';
 import ProductLine from './ProductLine';
+import CatLand from '../logged/CatLand';
 import backgroundImage from '../images/category-page-wall.jpg';
 import Footer from '../Footer';
 
@@ -16,7 +17,7 @@ export default function Categories() {
       id: 1,
       title: "Air Compressor",
       picture: "https://guzent.com/wp-content/uploads/2023/02/Guzent-Air-Compressor-Product-Image.jpg.webp",
-      link: "/CatLand/AirCompressor",
+      link: "/AirCompressor",
       discription: "We offer air compressor rentals and sales in the Philippines that are designed to deliver high-quality performance, reliability, and ease of use for a variety of applications. These machines power pneumatic tools and produce large volumes of air for large-scale industrial processes.",
       rentalAmount: 500
       
@@ -194,15 +195,16 @@ export default function Categories() {
     
     
     <div style={bodyStyles}>
-      <div className="p-8 ">
-        <input
-          className="h-8 w-80 "
-          type="text"
-          placeholder="Search categories..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-      </div>
+    <div className="p-8">
+      <input
+        className="h-12 w-96 px-4 py-2 text-lg bg-gray-100 rounded-full shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 border border-gray-300"
+        type="text"
+        placeholder="Search categories..."
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
+    </div>
+
       <div className="flex p-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 grid-rows-1 sm:grid-rows-2 md:grid-rows-3 lg:grid-rows-4 xl:grid-rows-4 gap-20">
       {categoryList
     .filter((cat) =>
