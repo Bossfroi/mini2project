@@ -1,17 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-import Navigation from '../Navigation';
-import ProductLine from './ProductLine';
-import CatLand from '../logged/CatLand';
-import backgroundImage from '../images/category-page-wall.jpg';
-import Footer from '../Footer';
 
-
-
-
-
-export default function Categories() {
   const categoryList = [
     {
       id: 1,
@@ -173,52 +163,31 @@ export default function Categories() {
       discription: "Our trencher attachment is made of the highest quality hydraulic motors that allow flow rates of up to 150LPM. They have the reliability and power you need to carry out any trenching jobs with ease.",
       rentalAmount: 2400
     },
-    
+];
 
-  ]
-  const [searchTerm, setSearchTerm] = useState('');
-
-  
-  
-  const bodyStyles = {
-    backgroundImage: `url(${backgroundImage})`,
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover', 
-    
-  };
+function Categories() {
   return (
-   <>
-    <div className="text-center py-12 bg-red-200">
-      <h1 className="text-3xl font-extrabold text-gray-900 leading-tight mb-4">Product Line</h1>
-      <p className="text-gray-600 text-lg">Browse our selection of top quality construction and heavy equipment only from the world’s leading manufacturers.</p>
-    </div>
-    
-    
-    <div style={bodyStyles}>
-    <div className="p-8">
-      <input
-        className="h-12 w-96 px-4 py-2 text-lg bg-gray-100 rounded-full shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 border border-gray-300"
-        type="text"
-        placeholder="Search categories..."
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-      />
-    </div>
-
-      <div className="flex p-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 grid-rows-1 sm:grid-rows-2 md:grid-rows-3 lg:grid-rows-4 xl:grid-rows-4 gap-20">
-      {categoryList
-    .filter((cat) =>
-      cat.title.toLowerCase().includes(searchTerm.toLowerCase())
-    )
-    .map((cat) => (
-      <Link to={cat.link} key={cat.id}>
-        <ProductLine title={cat.title} picture={cat.picture} />
-      </Link>
-    ))}
+    <div className="bg-red-200 p-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+    {categoryList.map((category) => (
+      <div key={category.id} className="max-w-md rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-transform duration-300 bg-white">
+        <img src={category.picture} alt={category.title} className="w-full h-48 object-cover" />
+        <div className="px-6 py-4">
+          <div className="font-semibold text-xl text-gray-800 mb-2">{category.title}</div>
+          <div className="flex justify-between mt-4">
+            <p className="text-gray-700 text-base">Rental Amount: ${category.rentalAmount}</p>
+            <a href={category.link} className="text-blue-500 hover:text-blue-600 hover:underline bg-blue-200 hover:bg-blue-400 text-white font-semibold px-4 py-2 rounded transition duration-300">
+              Details
+            </a>
+          </div>
+        </div>
       </div>
-    </div>
-      <Footer/>
-   
-   </>
-  )
+    ))}
+  </div>
+  
+
+
+
+  );
 }
+
+export default Categories;
