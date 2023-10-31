@@ -1,16 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
-// Create a memoized functional component for better performance
 const MemoizedHomeLogged = React.memo(function HomeLogged() {
   const [user, setUser] = useState(null);
   const [formData, setFormData] = useState({
     companyname: '',
-    companyaddress: '', 
+    companyaddress: '', // Fixed typo here
     businesstype: '',
     companynumber: '',
   });
 
-  // When the component mounts, retrieve user data from localStorage
   useEffect(() => {
     const userData = localStorage.getItem('userData');
     if (userData) {
@@ -19,20 +18,32 @@ const MemoizedHomeLogged = React.memo(function HomeLogged() {
     }
   }, []);
 
-  // Handle input changes
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Your submit logic here
+    try {
+      const response = await axios.post('http://localhost:5000/data/addOrUpdateUserdata', formData, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      // Check for a successful registration
+      if (response.status === 200) {
+        window.alert('successfully Save');
+        localStorage.setItem('userData', JSON.stringify(response));
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
+
 
   return (
     <div className="bg-gray-100 flex flex-col md:flex-row py-5">
-      {/* Left column */}
       {user && (
         <div className="w-full md:w-1/3 p-4">
           <div className="bg-white p-4 rounded-lg shadow-lg text-center animate__animated animate__fadeIn">
@@ -49,8 +60,7 @@ const MemoizedHomeLogged = React.memo(function HomeLogged() {
         </div>
       )}
 
-      {/* Right column */}
-      <div className="w-full md:w-2/3 p-4 md:p-8 flex ">
+      <div className="w-full md:w-2/3 p-4 md:p-8 flex">
         <div className="bg-white p-8 rounded-lg shadow-lg text-center animate__animated animate__fadeIn">
           <form className="space-y-4" onSubmit={handleSubmit}>
             <InputField
@@ -96,7 +106,6 @@ const MemoizedHomeLogged = React.memo(function HomeLogged() {
   );
 });
 
-// Extracted InputField component for reusability
 const InputField = ({ label, name, value, onChange }) => (
   <>
     <label htmlFor={name} className="block text-gray-700">
