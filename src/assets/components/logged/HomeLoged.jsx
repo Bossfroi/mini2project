@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Show from '../images/mediaLogo/show.png';
 import Hide from '../images/mediaLogo/hide.png';
+import { stringify } from 'postcss';
 
 const HomeLogged = () => {
   const [user, setUser] = useState(null);
@@ -38,7 +39,8 @@ const HomeLogged = () => {
       // Check for a successful response
       if (response.status === 200) {
         window.alert('Successfully Saved');
-        localStorage.setItem('userData', JSON.stringify(response.data));
+        localStorage.setItem('userData1', JSON.stringify(response.config.data));
+        console.log(formData)
       } else {
         window.alert('Failed to save data. Please try again.');
       }
