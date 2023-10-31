@@ -16,7 +16,7 @@ export default function Categories() {
       id: 1,
       title: "Air Compressor",
       picture: "https://guzent.com/wp-content/uploads/2023/02/Guzent-Air-Compressor-Product-Image.jpg.webp",
-      link: "/AirCompressor",
+      link: "/CatLand/AirCompressor",
       discription: "We offer air compressor rentals and sales in the Philippines that are designed to deliver high-quality performance, reliability, and ease of use for a variety of applications. These machines power pneumatic tools and produce large volumes of air for large-scale industrial processes.",
       rentalAmount: 500
       
