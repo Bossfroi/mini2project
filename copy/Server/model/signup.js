@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+// Ito ay naglalikha ng schema para sa user registration
 const registerSchema = new Schema({
     name: {
         type: String,
@@ -16,7 +17,6 @@ const registerSchema = new Schema({
         type: String,
         required: true,
         trim: true,
-  
     },
     picture: {
         type: String,
@@ -28,11 +28,11 @@ const registerSchema = new Schema({
         required: true,
         trim: true
     },
-
 }, {
-    timestamps: true
+    timestamps: true // Nagdaragdag ng mga timestamps (created_at at updated_at) sa bawat rekord
 });
 
+// Ito ay naglilikha ng model para sa 'authgoogles' collection sa database
 const register = mongoose.model('authgoogles', registerSchema);
 
-module.exports = register;
+module.exports = register; // Inilalabas ang model para sa paggamit sa iba't-ibang bahagi ng server application

@@ -10,6 +10,9 @@ const port = process.env.PORT || 5000;
 const googleauth = require('./RouterServerSide/AuthGoogleLogged');
 const Signup = require('./RouterServerSide/signupregister');
 const register = require('./RouterServerSide/login');
+const data = require('./RouterServerSide/Userdata');
+
+
 
 app.use(cors()); // Middleware para sa Cross-Origin Resource Sharing (CORS)
 app.use(express.json()); // Middleware para sa pag-parse ng JSON data mula sa HTTP requests
@@ -29,6 +32,9 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
 app.use('/authGoogle', googleauth); // Routes para sa Google authentication
 app.use('/SignupRegs', Signup); // Routes para sa user registration
 app.use('/login', register); // Routes para sa login
+app.use('/data', data); // Routes para sa login
+
+
 
 app.listen(port, () => { // para makita sa console ang server running at port ng iyong server.js
     console.log(`Server is running on port: ${port}`);

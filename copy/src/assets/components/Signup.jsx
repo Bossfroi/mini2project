@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios'; // Import Axios
+import axios from 'axios';
 import { Outlet } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
@@ -8,12 +8,13 @@ export default function Signup() {
     name: '',
     family_name: '',
     email: '',
-    picture: 'src="https://icon-library.com/images/person-icon-png/person-icon-png-1.jpg"',
+    picture: 'https://icon-library.com/images/person-icon-png/person-icon-png-1.jpg',
     password: '',
     confirmPassword: ''
   });
 
   const navigate = useNavigate();
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -22,7 +23,7 @@ export default function Signup() {
     e.preventDefault();
 
     if (formData.password !== formData.confirmPassword) {
-      console.error('Passwords do not match');
+      window.alert('Passwords do not match');
       return;
     }
 
@@ -32,8 +33,12 @@ export default function Signup() {
           'Content-Type': 'application/json',
         },
       });
-      
-      navigate('/login')
+
+      // Check for a successful registration
+      if (response.status === 200) {
+        window.alert('Registration successful');
+        navigate('/login');
+      }
     } catch (error) {
       console.error('Error:', error);
     }

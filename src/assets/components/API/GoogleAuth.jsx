@@ -38,7 +38,7 @@ export default function GoogleAuth() {
         localStorage.setItem('userData', response); // I-save ang na hook na  user data mula sa mongodb to  localStorage
         setServerResponse(data); // I-set ang server response sa state
         window.alert('Successful Login'); // Magpapakita ng alert para sa successful login
-        navigate('/Dashboard'); // para makapag direct sa page indikasyon na nakalogin kana so gumamit tayo ng usenavigate mula sa routerdom
+        navigate('/Categories'); // para makapag direct sa page indikasyon na nakalogin kana so gumamit tayo ng usenavigate mula sa routerdom
         localStorage.setItem('userData', credentialResponseJSON); // I-save ang user data sa localStorage
       } else {
         console.error('Server responded with an error:', response.statusText); // Kung may error sa response mula sa server

@@ -5,6 +5,7 @@ export default function Logout() {
 
   const handleLogout = () => {
     window.location.reload();
+    localStorage.clear();
     window.location.href = loginPageURL;
   };
   useEffect(() => {

@@ -23,7 +23,7 @@ export default function Navigation() {
 
   const NavMenu = [
     {
-      Title: isAuthenticated ? 'Home' : 'Services',
+      Title: isAuthenticated ? 'Profile' : 'Services',
       Link: isAuthenticated ? '/Dashboard' : '/Home',
     },
     {

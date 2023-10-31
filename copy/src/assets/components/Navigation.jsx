@@ -2,12 +2,20 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { create } from 'zustand';
-
 const useBearStore = create((set) => ({
   isAuthenticated: false,
+
   setIsAuthenticated: (value) => set({ isAuthenticated: value }),
 }));
+const localstorage = () => {
+//kung si local storage ay may laman then yung navigator ay walang home at mag kakaroon ng logout
+//kung false naman walang magging changes
+  if (localStorage.getItem('isLoggedIn') === "true") {
+    useBearStore.getState().setIsAuthenticated(true);
+  }
+}
 export { useBearStore };
+
 
 export default function Navigation() {
   const isAuthenticated = useBearStore((state) => state.isAuthenticated);
@@ -15,12 +23,12 @@ export default function Navigation() {
 
   const NavMenu = [
     {
-      Title: isAuthenticated ? 'Dashboard' : 'Home',
+      Title: isAuthenticated ? 'Profile' : 'Services',
       Link: isAuthenticated ? '/Dashboard' : '/Home',
     },
     {
-      Title: isAuthenticated ? 'Rent' : 'Categories',
-      Link: isAuthenticated ? '/Rent' : '/Categories',
+      Title: isAuthenticated ? 'Rent' : '',
+      Link: isAuthenticated ? '/Categories' : '/Categories',
     },
     {
       Title: isAuthenticated ? 'Cart' : 'Contactus',

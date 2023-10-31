@@ -5,7 +5,7 @@ const MemoizedHomeLogged = React.memo(function HomeLogged() {
   const [user, setUser] = useState(null);
   const [formData, setFormData] = useState({
     companyname: '',
-    companyaddress: '', // Fixed typo here
+    companyaddress: '', 
     businesstype: '',
     companynumber: '',
   });

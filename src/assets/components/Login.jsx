@@ -33,7 +33,7 @@ export default function Login() {
         setIsAuthenticated(true); // I-set ang authentication status para sa navigation para mag bago ang linking
         // I-save ang user data sa localStorage
         localStorage.setItem('userData', JSON.stringify(response.data));
-        navigate('/Dashboard'); // I-navigate ang user sa Dashboard page pag nakapasok na ang data mula sa filupform
+        navigate('/Categories'); // I-navigate ang user sa Dashboard page pag nakapasok na ang data mula sa filupform
         alert('Login Successful'); // Magpapakita ng alert para sa successful login
       } else {  //  para ma fiter if may mali ba sa response ng pag fifilup
         const errorData = await response.data;
