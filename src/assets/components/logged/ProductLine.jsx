@@ -1,10 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Categories from './Categories';
-import { Navigate } from 'react-router-dom';
 
 const ProductLine = (props) => {
   return (
+   <>
     <div className="max-w-xl mx-auto bg-red-400 rounded-lg shadow-lg transition-transform hover:scale-105">
       <Link to={props.link}>
         <img src={props.picture} alt="Image" className="w-full h-72 object-cover rounded-t-lg" />
@@ -16,7 +15,8 @@ const ProductLine = (props) => {
       </Link>
     </div>
 
-  );
+   
+   </>  );
 };
 
 export default ProductLine;

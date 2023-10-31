@@ -82,7 +82,7 @@ export default function Login() {
               onChange={handleInputChange} // I-link ang input field sa function para sa pag-update ng data
             />
           </div>
-          <button type="submit" className="bg-sky-600 shadow-lg py-2 px-4 rounded-md hover-bg-red-700">
+          <button type="submit" className="bg-sky-600 hover:bg-red-700 shadow-lg py-2 px-4 rounded-md">
             Login
           </button>
 
@@ -98,7 +98,7 @@ export default function Login() {
           <div className="mt-2 ml-14">
             <GoogleAuth /> {/* I-load ang Google authentication component */}
             <br />
-            <a href="/Signup" className="bg-sky-600 shadow-lg mt-12 ml-6 py-1 px-2 rounded-md hover-bg-red-700">
+            <a href="/Signup"className="bg-sky-600 hover:bg-red-700 shadow-lg py-1 px-10 rounded-md ">
               Sign-up Manually
             </a>
           </div>
