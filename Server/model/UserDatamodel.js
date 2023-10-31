@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 // Ito ay naglalikha ng schema para sa 'authGoogle' collection
 const dataschema = new Schema({
+
     companyname: {
         type: String,
         required: true,

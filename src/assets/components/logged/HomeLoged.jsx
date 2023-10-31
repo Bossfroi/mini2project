@@ -3,14 +3,16 @@ import axios from 'axios';
 import Show from '../images/mediaLogo/show.png';
 import Hide from '../images/mediaLogo/hide.png';
 
-const MemoizedHomeLogged = React.memo(function HomeLogged() {
+const HomeLogged = () => {
   const [user, setUser] = useState(null);
   const [formData, setFormData] = useState({
     companyname: '',
-    companyaddress: '', // Fixed typo here
+    companyaddress: '',
     businesstype: '',
     companynumber: '',
   });
+
+  const [isContentVisible, setContentVisibility] = useState(true);
 
   useEffect(() => {
     const userData = localStorage.getItem('userData');
@@ -33,17 +35,18 @@ const MemoizedHomeLogged = React.memo(function HomeLogged() {
         },
       });
 
-      // Check for a successful registration
+      // Check for a successful response
       if (response.status === 200) {
         window.alert('Successfully Saved');
-        localStorage.setItem('userData', JSON.stringify(response.data)); // Store the response data, not the entire response object
+        localStorage.setItem('userData', JSON.stringify(response.data));
+      } else {
+        window.alert('Failed to save data. Please try again.');
       }
     } catch (error) {
       console.error('Error:', error);
+      window.alert('An error occurred while saving your data.');
     }
   };
-
-  const [isContentVisible, setContentVisibility] = useState(true);
 
   return (
     <div className="w-full md:w-3/3 p-4 md:p-1 justify-center text-center flex">
@@ -54,7 +57,7 @@ const MemoizedHomeLogged = React.memo(function HomeLogged() {
               Welcome, {user.name}
             </h1>
             <p className="text-sm text-gray-700">Sign in as {user.email}</p>
-            <img src={user.picture} alt="" className='h-8 w-8 mx-auto'/>
+            <img src={user.picture} alt="" className="h-8 w-8 mx-auto" />
           </>
         )}
         <h1>Please set up your details</h1>
@@ -98,7 +101,7 @@ const MemoizedHomeLogged = React.memo(function HomeLogged() {
             <div className="text-center">
               <button
                 type="submit"
-                className="bg-blue-600 hover-bg-blue-700 text-white font-semibold py-2 px-4 rounded-md focus-outline-none focus-ring focus-ring-blue-300"
+                className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:ring focus:ring-blue-300"
               >
                 Save
               </button>
@@ -108,7 +111,7 @@ const MemoizedHomeLogged = React.memo(function HomeLogged() {
       </div>
     </div>
   );
-});
+};
 
 const InputField = ({ label, name, value, onChange }) => (
   <div>
@@ -121,9 +124,9 @@ const InputField = ({ label, name, value, onChange }) => (
       onChange={onChange}
       id={name}
       name={name}
-      className="w-full rounded-md border border-gray-300 px-3 py-2 focus-outline-none focus-ring focus-ring-blue-300"
+      className="w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring focus:ring-blue-300"
     />
   </div>
 );
 
-export default MemoizedHomeLogged;
+export default HomeLogged;
