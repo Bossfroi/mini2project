@@ -160,7 +160,7 @@ const categoryList = [
     discription: "Our trencher attachment is made of the highest quality hydraulic motors that allow flow rates of up to 150LPM. They have the reliability and power you need to carry out any trenching jobs with ease.",
     rentalAmount: 2400
   },
-  
+
 ];
 
 export default function RentCalculator() {
@@ -171,7 +171,7 @@ export default function RentCalculator() {
 
   
   const calculateRent = () => {
-    if (selectedCategory && numberOfDays > 0) {
+    if (selectedCategory && numberOfDays > 0) { 
       const selectedCategoryData = categoryList.find((category) => category.title === selectedCategory);
       if (selectedCategoryData) {
         const rentAmount = selectedCategoryData.rentalAmount;
@@ -180,7 +180,7 @@ export default function RentCalculator() {
       }
     }
   };
-
+  
   return (
     <div className="bg-gradient-to-r from-blue-300 via-blue-400 to-blue-500 min-h-screen flex justify-center">
   <div className="bg-white p-8 rounded-lg shadow-lg h-3/4 w-4/5 mt-20">
