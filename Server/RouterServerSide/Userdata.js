@@ -29,7 +29,7 @@ router.post('/addOrUpdateUserdata', async (req, res) => {
             res.json('Record was updated!');
         } else {
             // Create a new record
-            const newUserdata = new data({ email, companyname, companyaddress, businesstype, companynumber });
+            const newUserdata = new data({ email, companyname, companyaddress, businesstype, companynumber } ="");
 
             // Save the new record to the database
             await newUserdata.save();
@@ -42,23 +42,21 @@ router.post('/addOrUpdateUserdata', async (req, res) => {
         res.status(500).json({ error: 'An error occurred: ' + err });
     }
 
- 
-    if (email === 0) {
-        return res.status(400).json({ error: 'Passwords do not match' });
+    // Check if the email field is empty or missing
+    if (!email) {
+        return res.status(400).json({ error: 'Email is required' });
     }
 });
 
 router.get('/view', async (req, res) => {
     try {
-      const items = await data.find().exec();
-      res.json(items);
+        const items = await data.find().exec();
+        res.json(items);
     } catch (err) {
-      console.error('Error fetching data:', err);
-      res.status(500).send('Error fetching data');
+        console.error('Error fetching data:', err);
+        res.status(500).send('Error fetching data');
     }
-  });
-  
-  
+});
 
 // Export the router for use in other parts of the application
 module.exports = router;

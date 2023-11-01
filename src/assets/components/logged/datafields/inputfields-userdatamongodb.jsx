@@ -17,6 +17,7 @@ function InputField({ label, name, value, onChange, item }) {
         name={name}
         autoComplete="on"
         placeholder={item}
+        autoCapitalize='characters'
         
         className="w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring focus:ring-blue-300"
       />
