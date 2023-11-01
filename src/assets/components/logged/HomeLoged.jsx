@@ -3,6 +3,7 @@ import axios from 'axios';
 import InputField from '../logged/datafields/inputfields-userdatamongodb';
 import Show from '../images/mediaLogo/show.png';
 import Hide from '../images/mediaLogo/hide.png';
+import Rentinfo from '../logged/datafields/Rentinfo';
 
 const HomeLogged = () => {
   const [userData, setUserData] = useState(null);
@@ -89,7 +90,7 @@ const HomeLogged = () => {
           {userData && (
             <>
               <h1 className="text-3xl font-bold text-blue-700 mb-2">
-                Welcome, {userData.name}
+                Welcome {userData.name}
               </h1>
               <p className="text-sm text-gray-700">Sign in as {userData.email}</p>
               <img src={userData.picture} alt="" className="h-8 w-8 mx-auto" />
@@ -187,6 +188,7 @@ const HomeLogged = () => {
           )}
         </div>
       </div>
+      <Rentinfo/>
     </>
   );
 };

@@ -7,7 +7,7 @@ const router = require('express').Router();
 // Handle a POST request to '/addOrUpdateUserdata'
 router.post('/addOrUpdateUserdata', async (req, res) => {
     // Extract data from the request body
-    const { companyname, companyaddress, businesstype, companynumber } = req.body;
+    const { companyname, companyaddress, businesstype, companynumber } = req.body ;
 
     // Extract the 'email' from the request body
     const { email } = req.body;
@@ -18,7 +18,7 @@ router.post('/addOrUpdateUserdata', async (req, res) => {
 
         if (existingRecord) {
             // Update the existing record with the new data
-            existingRecord.companyname = companyname;
+            existingRecord.companyname = companyname ;
             existingRecord.companyaddress = companyaddress;
             existingRecord.businesstype = businesstype;
             existingRecord.companynumber = companynumber;
@@ -29,7 +29,7 @@ router.post('/addOrUpdateUserdata', async (req, res) => {
             res.json('Record was updated!');
         } else {
             // Create a new record
-            const newUserdata = new data({ email, companyname, companyaddress, businesstype, companynumber } ="");
+            const newUserdata = new data({ email, companyname, companyaddress, businesstype, companynumber } );
 
             // Save the new record to the database
             await newUserdata.save();
@@ -49,7 +49,9 @@ router.post('/addOrUpdateUserdata', async (req, res) => {
 });
 
 router.get('/view', async (req, res) => {
+  
     try {
+  
         const items = await data.find().exec();
         res.json(items);
     } catch (err) {
