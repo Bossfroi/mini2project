@@ -17,7 +17,7 @@ import Cart from '../logged/Cart'
 import Logout from '../logged/logout';
 import RentCalculator from '../RentCalculator';
 import ShippingCalculator from '../ShippingCalculator';
-
+import Forum from './Forum'
 
 
 
@@ -43,6 +43,7 @@ export default function AppRoute({ children }) {
         <Route path="*" element={<Notfound/>}/>
         <Route path="/" element={<Footer />}/>
         <Route path="/RentCalculator" element={<RentCalculator/>}/>
+        <Route path="/Forum" element={<Forum/>}/>
         <Route path="/ShippingCalculator" element={<ShippingCalculator/>}/>
         <Route path="/categories" element={<Categories />} />
         <Route path="/categories/:id" element={<CategoryDetails />} />

@@ -23,12 +23,12 @@ export default function Navigation() {
 
   const NavMenu = [
     {
-      Title: isAuthenticated ? 'Profile' : 'Services',
-      Link: isAuthenticated ? '/Dashboard' : '/Home',
+      Title: isAuthenticated ? 'Profile' : 'Forum',
+      Link: isAuthenticated ? '/Dashboard' : '/Forum',
     },
     {
-      Title: isAuthenticated ? 'Rent' : '',
-      Link: isAuthenticated ? '/Categories' : '/Categories',
+      Title: isAuthenticated ? 'Rent' : 'Services',
+      Link: isAuthenticated ? '/Categories' : '/Home',
     },
     {
       Title: isAuthenticated ? 'Cart' : 'Contactus',
