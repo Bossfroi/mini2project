@@ -116,7 +116,7 @@ export default function Home() {
               <img
                 src="/src/assets/components/images/easy-online-rentals.png"
                 alt="Your Logo"
-                className="h-8 w-8 mr-2" // Adjust the size and spacing as needed
+                className="h-8 w-8 mr-2"
               />
             </span>
             Easy Online Rentals
@@ -133,7 +133,7 @@ export default function Home() {
               <img
                 src="/src/assets/components/images/supplier-nationwide.png"
                 alt="Your Logo"
-                className="h-8 w-8 mr-2" // Adjust the size and spacing as needed
+                className="h-8 w-8 mr-2" 
               />
             </span>
             Supplier Nationwide
@@ -150,7 +150,7 @@ export default function Home() {
               <img
                 src="/src/assets/components/images/we-handle-everything.png"
                 alt="Your Logo"
-                className="h-8 w-8 mr-2" // Adjust the size and spacing as needed
+                className="h-8 w-8 mr-2" 
               />
             </span>
             We Handle Everything

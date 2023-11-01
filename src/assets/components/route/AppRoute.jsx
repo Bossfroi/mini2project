@@ -17,7 +17,7 @@ import Cart from '../logged/Cart'
 import Logout from '../logged/logout';
 import RentCalculator from '../RentCalculator';
 import ShippingCalculator from '../ShippingCalculator';
-import Categoriesbyitem from '../logged/categoriesbyitem';
+
 
 
 
@@ -45,9 +45,8 @@ export default function AppRoute({ children }) {
         <Route path="/" element={<Footer />}/>
         <Route path="/RentCalculator" element={<RentCalculator/>}/>
         <Route path="/ShippingCalculator" element={<ShippingCalculator/>}/>
-        <Route path="/categoriesbyitem" element={<Categoriesbyitem />} />
-        <Route path="/" exact component={CategoryDetails}/>
-        <Route path="/category/:categoryId" component={CategoryDetails} />
+        <Route path="/categories" element={<Categories />} />
+        <Route path="/categories/:id" element={<CategoryDetails />} />
         {children}
       </Routes>
       
