@@ -46,22 +46,8 @@ const HomeLogged = () => {
     fetchData();
   }, []);
   
-  // Arrays to store separate values from the fetched data
-  const emailArray = [];
-  const companynameArray = [];
-  const companyaddressArray = [];
-  const businesstypeArray = [];
-  const companynumberArray = [];
   
-  // Extract and store values from the 'data' array into separate arrays
-  data.forEach((item) => {
-    emailArray.push(item.email);
-    companynameArray.push(item.companyname);
-    companyaddressArray.push(item.companyaddress);
-    businesstypeArray.push(item.businesstype);
-    companynumberArray.push(item.companynumber);
-  });
-  
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
@@ -93,7 +79,9 @@ const HomeLogged = () => {
     }
   };
 
+
   return (
+    <>
     <div className="w-full md:w-3/3 p-4 md:p-1 justify-center text-center flex">
       <div className="bg-white p-8 rounded-lg shadow-lg text-center animate__animated animate__fadeIn">
         {userData && (
@@ -116,19 +104,25 @@ const HomeLogged = () => {
         </div>
         {isContentVisible && (
           <form className="space-y-4" onSubmit={handleSubmit}>
-            
+            {data
+              .filter(item => item.email === formData.email  )
+            .map(item => (
+             
+        <>
+      
                 <input
                   type="hidden"
                   name="email"
                   value={formData.email }
                   onChange={handleChange}
+                 
                 />
                 <InputField
                   label="Your Company"
                   name="companyname"
                   value={formData.companyname }
                   onChange={handleChange}
-                  placeholder={companynameArray[0]}
+                  item={item.companyname}
               
                 />
                 <InputField
@@ -136,35 +130,45 @@ const HomeLogged = () => {
                   name="companyaddress"
                   value={formData.companyaddress }
                   onChange={handleChange}
-                  placeholder={companyaddressArray[0]}
+                  item={item.companyaddress}
                 />
                 <InputField
                   label="Your Type of Business"
                   name="businesstype"
                   value={formData.businesstype}
                   onChange={handleChange}
-                  placeholder={businesstypeArray[0]}
+                  item={item.businesstype}
                 />
                 <InputField
                   label="Your Company Number"
                   name="companynumber"
                   value={formData.companynumber }
                   onChange={handleChange}
-                  placeholder={companynumberArray[0]}
+                  item={item.companynumber}
                 />
              
             <div className="text-center">
-              <button
-                type="submit"
-                className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:ring focus:ring-blue-300"
-              >
-                Save
-              </button>
+            <button
+                     type="submit"
+                     className="bg-blue-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:ring focus:ring-blue-300"
+                   >
+                     Save
+                   </button>
+                   <button
+                     type="button" // Use type="button" for an edit button
+                     className="bg-blue-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:ring focus:ring-blue-300"
+                   >
+                     Edit
+                   </button>
             </div>
+            </>
+             ))}
           </form>
+        
         )}
       </div>
     </div>
+   </>
   );
 };
 
