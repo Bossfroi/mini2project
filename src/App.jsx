@@ -10,7 +10,9 @@ export default function App() {
   return (
     <GoogleOAuthProvider clientId={APICLIENTID}>
       <AppRouter />
-      <Outlet />
+    
+      
     </GoogleOAuthProvider>
+    
   );
 }

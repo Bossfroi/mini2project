@@ -3,7 +3,7 @@ import GoogleAuth from './API/GoogleAuth'; // Import ang Google authentication c
 import { useNavigate } from 'react-router-dom';
 import { useBearStore } from './Navigation'; // Import ng custom hook para sa navigation ng authentication
 import axios from 'axios'; // Import ng Axios para sa HTTP requests
-import { Outlet } from "react-router-dom";
+
 import Footer from './Footer';
 
 export default function Login() {
@@ -107,6 +107,6 @@ export default function Login() {
         </form>
       </div>
     </section>
+    
   );
 }
-<Footer/>

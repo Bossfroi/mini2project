@@ -131,7 +131,7 @@ export default function Signup() {
         </div>
       </section>
       <Outlet />
+      <Footer/>
     </>
   );
 }
-<Footer/>

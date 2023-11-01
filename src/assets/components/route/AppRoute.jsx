@@ -17,7 +17,7 @@ import Cart from '../logged/Cart'
 import Logout from '../logged/logout';
 import RentCalculator from '../RentCalculator';
 import ShippingCalculator from '../ShippingCalculator';
-import Forum from './Forum'
+import Forum from '../Forum'
 
 
 
