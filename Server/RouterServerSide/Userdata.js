@@ -48,5 +48,17 @@ router.post('/addOrUpdateUserdata', async (req, res) => {
     }
 });
 
+router.get('/view', async (req, res) => {
+    try {
+      const items = await data.find().exec();
+      res.json(items);
+    } catch (err) {
+      console.error('Error fetching data:', err);
+      res.status(500).send('Error fetching data');
+    }
+  });
+  
+  
+
 // Export the router for use in other parts of the application
 module.exports = router;

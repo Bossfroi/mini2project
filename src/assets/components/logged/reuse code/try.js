@@ -32,6 +32,7 @@ const HomeLogged = () => {
     fetchUserData();
   }, []);
 
+  // MongoDB API Fetch
   const [data, setData] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
@@ -42,26 +43,10 @@ const HomeLogged = () => {
         console.error('Error fetching data', error);
       }
     };
-  
+
     fetchData();
   }, []);
-  
-  // Arrays to store separate values from the fetched data
-  const emailArray = [];
-  const companynameArray = [];
-  const companyaddressArray = [];
-  const businesstypeArray = [];
-  const companynumberArray = [];
-  
-  // Extract and store values from the 'data' array into separate arrays
-  data.forEach((item) => {
-    emailArray.push(item.email);
-    companynameArray.push(item.companyname);
-    companyaddressArray.push(item.companyaddress);
-    businesstypeArray.push(item.businesstype);
-    companynumberArray.push(item.companynumber);
-  });
-  
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
@@ -116,43 +101,44 @@ const HomeLogged = () => {
         </div>
         {isContentVisible && (
           <form className="space-y-4" onSubmit={handleSubmit}>
-            
+            {data.map((item) => (
+              <div key={item.email}>
                 <input
                   type="hidden"
                   name="email"
-                  value={formData.email }
+                  value={formData.email}
                   onChange={handleChange}
                 />
                 <InputField
                   label="Your Company"
                   name="companyname"
-                  value={formData.companyname }
+                  value={formData.companyname}
                   onChange={handleChange}
-                  placeholder={companynameArray[0]}
-              
+                  placeholder={item.companyname}
                 />
                 <InputField
                   label="Your Address"
                   name="companyaddress"
-                  value={formData.companyaddress }
+                  value={formData.companyaddress}
                   onChange={handleChange}
-                  placeholder={companyaddressArray[0]}
+                  placeholder={item.companyaddress}
                 />
                 <InputField
                   label="Your Type of Business"
                   name="businesstype"
                   value={formData.businesstype}
                   onChange={handleChange}
-                  placeholder={businesstypeArray[0]}
+                  placeholder={item.businesstype}
                 />
                 <InputField
                   label="Your Company Number"
                   name="companynumber"
-                  value={formData.companynumber }
+                  value={formData.companynumber}
                   onChange={handleChange}
-                  placeholder={companynumberArray[0]}
+                  placeholder={item.companynumber}
                 />
-             
+              </div>
+            ))}
             <div className="text-center">
               <button
                 type="submit"
