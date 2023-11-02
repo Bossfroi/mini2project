@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { useBearStore } from './Navigation'; // Import ng custom hook para sa navigation ng authentication
 import axios from 'axios'; // Import ng Axios para sa HTTP requests
 
+import Footer from './Footer';
+
 export default function Login() {
   const navigate = useNavigate(); // Hook para sa navigation
   const setIsAuthenticated = useBearStore((state) => state.setIsAuthenticated); // Function para sa pag-set ng authentication status
@@ -105,5 +107,6 @@ export default function Login() {
         </form>
       </div>
     </section>
+    
   );
 }

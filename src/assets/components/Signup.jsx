@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Outlet } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import Footer from './Footer';
+
 
 export default function Signup() {
   const [formData, setFormData] = useState({
@@ -129,6 +131,7 @@ export default function Signup() {
         </div>
       </section>
       <Outlet />
+      <Footer/>
     </>
   );
 }

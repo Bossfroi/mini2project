@@ -3,7 +3,9 @@ import axios from 'axios';
 import InputField from '../logged/datafields/inputfields-userdatamongodb';
 import Show from '../images/mediaLogo/show.png';
 import Hide from '../images/mediaLogo/hide.png';
-
+import Rentinfo from '../logged/datafields/Rentinfo';
+import Footer from '../Footer';
+  // State variables para sa user data, form data, at iba pa
 const HomeLogged = () => {
   const [userData, setUserData] = useState(null);
   const [formData, setFormData] = useState({
@@ -17,7 +19,7 @@ const HomeLogged = () => {
   const [isContentVisible, setContentVisibility] = useState(true);
   const [data, setData] = useState([]);
   const [editIndex, setEditIndex] = useState();
-
+ // UseEffect para sa pagkuha ng user data mula sa local storage
   useEffect(() => {
     const fetchUserData = async () => {
       try {
@@ -34,14 +36,13 @@ const HomeLogged = () => {
 
     fetchUserData();
   }, []);
-
+  // UseEffect para sa pagkuha ng data mula sa server
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get('http://localhost:5000/data/view');
         setData(response.data);
   
-        // Store the fetched data in local storage with the key 'userData1'
         localStorage.setItem('userData1', JSON.stringify(response.data));
       } catch (error) {
         console.error('Error fetching data', error);
@@ -50,12 +51,12 @@ const HomeLogged = () => {
   
     fetchData();
   }, []);
-  
+    // Function para sa pagbabago ng mga input fields
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
-
+  // Function para sa pag-submit ng form
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -89,7 +90,7 @@ const HomeLogged = () => {
           {userData && (
             <>
               <h1 className="text-3xl font-bold text-blue-700 mb-2">
-                Welcome, {userData.name}
+                Welcome {userData.name}
               </h1>
               <p className="text-sm text-gray-700">Sign in as {userData.email}</p>
               <img src={userData.picture} alt="" className="h-8 w-8 mx-auto" />
@@ -187,6 +188,8 @@ const HomeLogged = () => {
           )}
         </div>
       </div>
+      <Rentinfo/>
+      <Footer/>
     </>
   );
 };
