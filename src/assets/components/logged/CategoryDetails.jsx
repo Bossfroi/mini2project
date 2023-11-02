@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Footer from '../Footer';
 
 // Sample categoryList data
@@ -238,7 +239,7 @@ function CategoryDetails() {
   return (
     <>
     <div className="bg-red-300">
-    <div className="flex">
+      <div className="flex">
         <img src={category.picture} alt={category.title} className="w-1/2 h-auto m-8 mr-0" />
         <div className="bg-white p-6 shadow-md w-full sm:w-1/2 m-8 ml-0">
           <h2 className="text-3xl font-semibold text-gray-800 mb-4">{category.title}</h2>
@@ -246,19 +247,23 @@ function CategoryDetails() {
           <p className="text-2xl font-semibold text-blue-500">
             Rental Amount: ${category.rentalAmount}
           </p>
-          <button className="mt-4 p-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none focus:bg-blue-600">
-            Make Payment
-          </button>
+
+          <div className="flex items-center mt-4"> {/* Use 'flex' class here to align items */}
+            <Link to="/PaymentMethod" className="p-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none focus:bg-blue-600">
+              Make Payment
+            </Link>
+          </div>
         </div>
       </div>
-  
+
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-4 m-4 sm:m-8 mt-0">
         <img src={category.picture1} alt={category.title} className="w-full h-auto rounded-lg shadow-md" />
         <img src={category.picture2} alt={category.title} className="w-full h-auto rounded-lg shadow-md" />
         <img src={category.picture3} alt={category.title} className="w-full h-auto rounded-lg shadow-md" />
       </div>
-<Footer/>
+      <Footer />
     </div>
+
 </>
 
 

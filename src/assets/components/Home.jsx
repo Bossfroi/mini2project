@@ -2,7 +2,6 @@ import React from 'react'
 import Navigation from './Navigation'
 import { Outlet } from "react-router-dom";
 import backgroundImage from './images/home-page-wallpaper.jpg';
-
 import Footer from './Footer';
 
 
