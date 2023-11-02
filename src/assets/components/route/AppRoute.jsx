@@ -18,6 +18,7 @@ import Logout from '../logged/logout';
 import RentCalculator from '../RentCalculator';
 import ShippingCalculator from '../ShippingCalculator';
 import PaymentMethod from '../logged/PaymentMethod';
+import Forum from '../Forum'
 
 
 
@@ -47,8 +48,10 @@ export default function AppRoute({ children }) {
         <Route path="/RentCalculator" element={<RentCalculator/>}/>
         <Route path="/ShippingCalculator" element={<ShippingCalculator/>}/>
         <Route path="/PaymentMethod" element={<PaymentMethod/>}/>
+        <Route path="/Forum" element={<Forum/>}/>
         <Route path="/categories" element={<Categories />} />
         <Route path="/categories/:id" element={<CategoryDetails />} />
+        
         {children}
       </Routes>
       
