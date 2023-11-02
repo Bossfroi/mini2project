@@ -1,5 +1,5 @@
 import React from 'react';
-import Navigation from './Navigation';
+import Navigation from './Navigation'; // Ensure this is imported correctly
 import FacebookSVG from './images/mediaLogo/facebook.png';
 import InstagramSVG from './images/mediaLogo/instagram.png';
 import LinkedinSVG from './images/mediaLogo/linkedin.png';
@@ -9,7 +9,7 @@ import { Outlet } from 'react-router-dom';
 
 function Footer() {
   return (
-    <footer className="bg-gray-900 text-white py-10 fixed bottom-0 w-full">
+    <footer className="bg-gray-900 text-white py-10">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           <div className="text-center md:text-left">
