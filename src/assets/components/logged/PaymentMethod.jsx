@@ -116,13 +116,13 @@ export default function PaymentMethod() {
                     <option value="paypal">PayPal</option>
                   </select>
                   <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                    {/* Credit Card Logo */}
+                    
                     <img
                       src="/src/assets/components/images/credit.png"
                       alt="Credit Card Logo"
                       className="w-8 h-8 mr-2"
                     />
-                    {/* PayPal Logo */}
+                    
                     <img
                       src="/src/assets/components/images/paypal.png"
                       alt="PayPal Logo"

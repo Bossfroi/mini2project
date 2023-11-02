@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Footer from '../Footer';
 
-// Sample categoryList data
 const categoryList = [
   {
     id: 1,
@@ -225,10 +224,13 @@ const categoryList = [
     discription: "Our trencher attachment is made of the highest quality hydraulic motors that allow flow rates of up to 150LPM. They have the reliability and power you need to carry out any trenching jobs with ease.",
     rentalAmount: 2400
   },
+
 ];
 
 function CategoryDetails() {
   const { id } = useParams();
+  const [startDate, setStartDate] = useState('');
+  const [endDate, setEndDate] = useState('');
 
   const category = categoryList.find((category) => category.id === parseInt(id));
 
@@ -237,7 +239,6 @@ function CategoryDetails() {
   }
 
   return (
-    <>
     <div className="bg-red-300">
       <div className="flex">
         <img src={category.picture} alt={category.title} className="w-1/2 h-auto m-8 mr-0" />
@@ -248,10 +249,39 @@ function CategoryDetails() {
             Rental Amount: ${category.rentalAmount}
           </p>
 
-          <div className="flex items-center mt-4"> {/* Use 'flex' class here to align items */}
-            <Link to="/PaymentMethod" className="p-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none focus:bg-blue-600">
-              Make Payment
-            </Link>
+          <div className="flex items-center mt-4">
+            <div className="mb-4">
+              <label htmlFor="startDate" className="block text-gray-700 text-sm font-bold">
+                Start Date:
+              </label>
+              <input
+                type="date"
+                id="startDate"
+                className="w-full p-2 border rounded-md"
+                value={startDate}
+                onChange={(e) => setStartDate(e.target.value)}
+              />
+            </div>
+            <div className="mb-4 ml-4">
+              <label htmlFor="endDate" className="block text-gray-700 text-sm font-bold">
+                End Date:
+              </label>
+              <input
+                type="date"
+                id="endDate"
+                className="w-full p-2 border rounded-md"
+                value={endDate}
+                onChange={(e) => setEndDate(e.target.value)}
+              />
+            </div>
+            <div>
+              <Link
+                to={startDate && endDate ? "/PaymentMethod" : "#"} // Disable the link if either date is empty
+                className={`p-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none focus:bg-blue-600 ml-4 ${!startDate || !endDate ? "cursor-not-allowed opacity-50" : ""}`}
+              >
+                Make Payment
+              </Link>
+            </div>
           </div>
         </div>
       </div>
@@ -263,11 +293,6 @@ function CategoryDetails() {
       </div>
       <Footer />
     </div>
-
-</>
-
-
-
   );
 }
 
