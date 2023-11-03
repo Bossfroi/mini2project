@@ -22,10 +22,7 @@ export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const NavMenu = [
-    {
-      Title: isAuthenticated ? 'Profile' : 'Forum',
-      Link: isAuthenticated ? '/Dashboard' : '/Forum',
-    },
+    
     {
       Title: isAuthenticated ? 'Rent' : 'Services',
       Link: isAuthenticated ? '/Categories' : '/Home',
