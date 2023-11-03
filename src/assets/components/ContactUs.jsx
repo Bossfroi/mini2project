@@ -1,5 +1,6 @@
 import React from 'react'
 import { Outlet } from "react-router-dom";
+import logo from './images/Logo.png';
 
 export default function ContactUs() {
   return (
@@ -7,7 +8,7 @@ export default function ContactUs() {
    <div className="max-w-lg mx-auto p-6 rounded-lg shadow-md bg-white">
    <img 
    className="flex-auto " 
-   src="/src/assets/components/images/Logo.png" 
+   src={logo} 
    alt="Logo" />
       <h2 className="text-2xl font-bold mb-4 text-gray-800">Contact Us</h2>
       <form>

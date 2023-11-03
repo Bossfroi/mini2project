@@ -3,7 +3,7 @@ import GoogleAuth from './API/GoogleAuth'; // Import ang Google authentication c
 import { useNavigate } from 'react-router-dom';
 import { useBearStore } from './Navigation'; // Import ng custom hook para sa navigation ng authentication
 import axios from 'axios'; // Import ng Axios para sa HTTP requests
-
+import logo from './images/Logo.png';
 import Footer from './Footer';
 
 export default function Login() {
@@ -51,7 +51,7 @@ export default function Login() {
   return (
     <section className="bg-gray-100 flex items-center justify-center mt-2">
       <div className="bg-slate-50 p-8 w-96 shadow-md mt-2 justify-center">
-        <img className="flex-auto" src="/src/assets/components/images/Logo.png" alt="Logo" />
+        <img className="flex-auto" src={logo} alt="Logo" />
         <h2 className="text-2xl font-semibold mb-4">Login</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-3">

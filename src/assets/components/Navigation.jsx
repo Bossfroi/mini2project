@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import logo from './images/Logo1.png';
+
 
 import { create } from 'zustand';
 const useBearStore = create((set) => ({
@@ -55,7 +57,7 @@ export default function Navigation() {
         <nav className="container mx-auto">
           <div className="flex justify-between items-center">
             <Link to="/login" className="text-white text-2xl font-bold">
-              <img src="/src/assets/components/images/Logo1.png" className="w-35 h-10" alt="Logo" />
+              <img src={logo} className="w-35 h-10" alt="Logo" />
             </Link>
             <div className="hidden md:flex space-x-4">
               {NavMenu.map((item) => (

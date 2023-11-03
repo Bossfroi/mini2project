@@ -1,5 +1,7 @@
 import React from 'react'
 import { Outlet } from "react-router-dom";
+import truck from './images/aboutTruck.jpg';
+import hero from './images/hero1.jpg';
 import Footer from './Footer';
 
 export default function About() {
@@ -8,7 +10,7 @@ export default function About() {
     
     <div className="relative">
   <img
-    src="/src/assets/components/images/hero1.jpg"
+    src={hero}
     alt=""
     className="w-full h-auto filter blur-sm"
   />
@@ -51,7 +53,7 @@ export default function About() {
   
   <div className="w-1/2 p-4">
     <img 
-    src="/src/assets/components/images/aboutTruck.jpg" 
+    src={truck} 
     alt=""
     className='rounded-lg'
     />

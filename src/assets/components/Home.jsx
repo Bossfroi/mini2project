@@ -2,6 +2,12 @@ import React from 'react'
 import Navigation from './Navigation'
 import { Outlet } from "react-router-dom";
 import backgroundImage from './images/home-page-wallpaper.jpg';
+import rent from './images/rent-calculatorButton.jpg';
+import shipping from './images/book-nowButton.jpg';
+import easy from './images/easy-online-rentals.png';
+import supply from './images/supplier-nationwide.png';
+import handle from './images/we-handle-everything.png';
+import video from './images/homePageVideo.mp4';
 import Footer from './Footer';
 
 
@@ -71,7 +77,7 @@ export default function Home() {
       <div className="m-2 sm:w-1/2">
         <div className="relative h-72">
           <img
-            src="/src/assets/components/images/rent-calculatorButton.jpg"
+            src={rent}
             alt="Rent Calculator"
             className="w-full h-full object-cover rounded-2xl"
           />
@@ -87,7 +93,7 @@ export default function Home() {
       <div className="m-2 sm:w-1/2">
         <div className="relative h-72">
           <img
-            src="/src/assets/components/images/book-nowButton.jpg"
+            src={shipping}
             alt="Shipping Fee Calculator"
             className="w-full h-full object-cover rounded-2xl"
           />
@@ -113,7 +119,7 @@ export default function Home() {
           <h2 className="text-2xl font-semibold mb-4 border-b-2 border-gray-700 flex">
             <span className="logo">
               <img
-                src="/src/assets/components/images/easy-online-rentals.png"
+                src={easy}
                 alt="Your Logo"
                 className="h-8 w-8 mr-2"
               />
@@ -130,7 +136,7 @@ export default function Home() {
           <h2 className="text-2xl font-semibold mb-4 border-b-2 border-gray-700 flex">
             <span className="logo">
               <img
-                src="/src/assets/components/images/supplier-nationwide.png"
+                src={supply}
                 alt="Your Logo"
                 className="h-8 w-8 mr-2" 
               />
@@ -147,7 +153,7 @@ export default function Home() {
           <h2 className="text-2xl font-semibold mb-4 border-b-2 border-gray-700 flex">
             <span className="logo">
               <img
-                src="/src/assets/components/images/we-handle-everything.png"
+                src={handle}
                 alt="Your Logo"
                 className="h-8 w-8 mr-2" 
               />
@@ -187,7 +193,7 @@ export default function Home() {
             muted
             playsInline
           >
-            <source src="/src/assets/components/images/homePageVideo.mp4" type="video/mp4" />
+            <source src={video} type="video/mp4" />
           </video>
         </div>
 
