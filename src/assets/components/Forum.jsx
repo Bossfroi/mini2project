@@ -35,6 +35,7 @@ const Forum = () => {
       {data ? (
         <div>
           <p>Followers: {data.username}</p>
+
           <img src={data.profile_pic_url} alt="" />
           <p>Followers: {data.full_name}</p>
           <p>Instagram Account Information:</p>
