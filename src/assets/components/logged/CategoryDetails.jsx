@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import Cart from './Cart'; // Adjust the import path as needed
 import Footer from '../Footer';
 
 const categoryList = [
@@ -228,6 +229,8 @@ const categoryList = [
 ];
 
 function CategoryDetails() {
+
+  
   const { id } = useParams();
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
@@ -237,7 +240,22 @@ function CategoryDetails() {
   if (!category) {
     return <div>Category not found</div>;
   }
-
+  
+  const [cart, setCart] = useState([]);
+  const addToCart = () => {
+    // Create a new item object based on the selected category
+    const cartItem = {
+      id: category.id,
+      title: category.title,
+      rentalAmount: category.rentalAmount,
+      startDate,
+      endDate,
+    };
+  
+    // Add the item to the cart by updating the cart state
+    setCart([...cart, cartItem]);
+  };
+  
   return (
     <div className="bg-red-300">
       <div className="flex">
@@ -248,7 +266,7 @@ function CategoryDetails() {
           <p className="text-2xl font-semibold text-blue-500">
             Rental Amount: ${category.rentalAmount}
           </p>
-
+  
           <div className="flex items-center mt-4">
             <div className="mb-4">
               <label htmlFor="startDate" className="block text-gray-700 text-sm font-bold">
@@ -274,26 +292,43 @@ function CategoryDetails() {
                 onChange={(e) => setEndDate(e.target.value)}
               />
             </div>
+          </div>
+          <div className="mt-8 flex">
             <div>
               <Link
-                to={startDate && endDate ? "/PaymentMethod" : "#"} // Disable the link if either date is empty
+                to={startDate && endDate ? "/PaymentMethod" : "#"}
                 className={`p-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none focus:bg-blue-600 ml-4 ${!startDate || !endDate ? "cursor-not-allowed opacity-50" : ""}`}
               >
                 Make Payment
               </Link>
             </div>
+  
+            <div>
+              <Link
+                to="/cart" 
+                className="p-2 bg-green-500 text-white rounded hover-bg-green-600 focus:outline-none focus:bg-green-600 ml-4"
+              >
+                Add to Cart
+              </Link>
+            </div>
           </div>
         </div>
       </div>
-
+  
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-4 m-4 sm:m-8 mt-0">
         <img src={category.picture1} alt={category.title} className="w-full h-auto rounded-lg shadow-md" />
         <img src={category.picture2} alt={category.title} className="w-full h-auto rounded-lg shadow-md" />
         <img src={category.picture3} alt={category.title} className="w-full h-auto rounded-lg shadow-md" />
       </div>
+      <button onClick={addToCart}>Add to Cart</button>
+
+      
+      <Cart cart={cart} /> {/* Display the cart content */}
       <Footer />
     </div>
   );
+  
+  
 }
 
 export default CategoryDetails;

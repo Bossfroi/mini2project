@@ -12,10 +12,7 @@ export default function NavigationLoged() {
       Title: 'List',
       link: '/Categories',
     },
-    {
-      Title: 'Forum',
-      link: '/Forum',
-    },
+    
   
     {
       Title: 'Lagout',
